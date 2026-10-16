@@ -1,0 +1,8 @@
+{
+  "name": "stral-contracts",
+  "private": true,
+  "devDependencies": {
+    "@openzeppelin/contracts-5": "npm:@openzeppelin/contracts@^5.1.0",
+    "@openzeppelin/contracts-upgradeable": "4.9.0"
+  }
+}

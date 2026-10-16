@@ -1,0 +1,27 @@
+[profile.default]
+src = "src"
+test = "tests"
+out = "foundry/out"
+cache_path = "foundry/cache"
+libs = ["node_modules", "foundry/lib"]
+remappings = [
+    "src/=src/",
+    "fixtures/=tests/fixtures/",
+    "@openzeppelin/contracts-upgradeable/=node_modules/@openzeppelin/contracts-upgradeable/",
+    "@openzeppelin/contracts-5/=node_modules/@openzeppelin/contracts-5/",
+    "@openzeppelin/contracts/=node_modules/@openzeppelin/contracts/",
+    "forge-std/=foundry/lib/forge-std/src/",
+]
+solc = "0.8.24"
+evm_version = "cancun"
+via_ir = true
+optimizer = true
+optimizer_runs = 100
+allow_internal_expect_revert = true
+show_logs = true
+broadcast = "temp/broadcast"
+fs_permissions = [{ access = "read", path = "./deployers/deployments" }, { access = "read", path = "./temp/prod" }, { access = "read", path = "./temp/preprod" }, { access = "read-write", path = "./temp/rescue" }]
+
+[rpc_endpoints]
+arbitrum = "${ARBITRUM_RPC_URL}"
+mainnet = "${MAINNET_RPC_URL}"

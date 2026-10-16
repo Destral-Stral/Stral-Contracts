@@ -1,0 +1,1333 @@
+{
+  "address": "0x4698DAeD07caDbEF5535759cF9de4C469556B9a7",
+  "abi": [
+    {
+      "inputs": [],
+      "stateMutability": "nonpayable",
+      "type": "constructor"
+    },
+    {
+      "inputs": [],
+      "name": "NotCoordinatorOwner",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "NothingUnlockable",
+      "type": "error"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "token",
+          "type": "address"
+        }
+      ],
+      "name": "SafeERC20FailedOperation",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "ZeroAddress",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "ZeroAmount",
+      "type": "error"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "uint8",
+          "name": "version",
+          "type": "uint8"
+        }
+      ],
+      "name": "Initialized",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "account",
+          "type": "address"
+        }
+      ],
+      "name": "Paused",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "uint64",
+          "name": "oldDuration",
+          "type": "uint64"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint64",
+          "name": "newDuration",
+          "type": "uint64"
+        }
+      ],
+      "name": "StakingLockDurationUpdated",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "bytes32",
+          "name": "positionId",
+          "type": "bytes32"
+        },
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "user",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "amount",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint64",
+          "name": "unlockAt",
+          "type": "uint64"
+        }
+      ],
+      "name": "StakingPositionCreated",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "bytes32",
+          "name": "positionId",
+          "type": "bytes32"
+        },
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "user",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "recipient",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "amount",
+          "type": "uint256"
+        }
+      ],
+      "name": "StakingPositionWithdrawn",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "token",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "recipient",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "amount",
+          "type": "uint256"
+        }
+      ],
+      "name": "TokenWithdrawn",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "user",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "recipient",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "requested",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "fromVesting",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "fromStaking",
+          "type": "uint256"
+        }
+      ],
+      "name": "TokensUnlocked",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "account",
+          "type": "address"
+        }
+      ],
+      "name": "Unpaused",
+      "type": "event"
+    },
+    {
+      "inputs": [],
+      "name": "coordinator",
+      "outputs": [
+        {
+          "internalType": "contract ISmartWalletCoordinator",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "amount",
+          "type": "uint256"
+        }
+      ],
+      "name": "deposit",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "user",
+          "type": "address"
+        }
+      ],
+      "name": "getUserStakeDetails",
+      "outputs": [
+        {
+          "components": [
+            {
+              "components": [
+                {
+                  "internalType": "uint256",
+                  "name": "totalVipStake",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "vestingUnclaimed",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "vestingClaimable",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "stakingLocked",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "stakingWithdrawable",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "stakingWithdrawn",
+                  "type": "uint256"
+                }
+              ],
+              "internalType": "struct Staking.UserStakeSummary",
+              "name": "summary",
+              "type": "tuple"
+            },
+            {
+              "components": [
+                {
+                  "internalType": "uint8",
+                  "name": "scheduleType",
+                  "type": "uint8"
+                },
+                {
+                  "internalType": "uint8",
+                  "name": "cliffMonths",
+                  "type": "uint8"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "vestingPeriods",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "string",
+                  "name": "label",
+                  "type": "string"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "totalAmount",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "claimedAmount",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "vestedAmount",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "claimableAmount",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "lockedAmount",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "uint64",
+                  "name": "nextReleaseAt",
+                  "type": "uint64"
+                }
+              ],
+              "internalType": "struct IVestingDistributor.VestingPositionView[]",
+              "name": "vestingPositions",
+              "type": "tuple[]"
+            },
+            {
+              "components": [
+                {
+                  "internalType": "bytes32",
+                  "name": "positionId",
+                  "type": "bytes32"
+                },
+                {
+                  "internalType": "address",
+                  "name": "owner",
+                  "type": "address"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "amount",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "withdrawnAmount",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "uint64",
+                  "name": "depositedAt",
+                  "type": "uint64"
+                },
+                {
+                  "internalType": "uint64",
+                  "name": "unlockAt",
+                  "type": "uint64"
+                }
+              ],
+              "internalType": "struct Staking.StakingPosition[]",
+              "name": "stakingPositions",
+              "type": "tuple[]"
+            }
+          ],
+          "internalType": "struct Staking.UserStakeDetails",
+          "name": "details",
+          "type": "tuple"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "user",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "positionOffset",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "positionLimit",
+          "type": "uint256"
+        }
+      ],
+      "name": "getUserStakeDetailsPage",
+      "outputs": [
+        {
+          "components": [
+            {
+              "components": [
+                {
+                  "internalType": "uint256",
+                  "name": "totalVipStake",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "vestingUnclaimed",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "vestingClaimable",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "stakingLocked",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "stakingWithdrawable",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "stakingWithdrawn",
+                  "type": "uint256"
+                }
+              ],
+              "internalType": "struct Staking.UserStakeSummary",
+              "name": "summary",
+              "type": "tuple"
+            },
+            {
+              "internalType": "uint256",
+              "name": "stakingPositionCount",
+              "type": "uint256"
+            },
+            {
+              "components": [
+                {
+                  "internalType": "uint8",
+                  "name": "scheduleType",
+                  "type": "uint8"
+                },
+                {
+                  "internalType": "uint8",
+                  "name": "cliffMonths",
+                  "type": "uint8"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "vestingPeriods",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "string",
+                  "name": "label",
+                  "type": "string"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "totalAmount",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "claimedAmount",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "vestedAmount",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "claimableAmount",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "lockedAmount",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "uint64",
+                  "name": "nextReleaseAt",
+                  "type": "uint64"
+                }
+              ],
+              "internalType": "struct IVestingDistributor.VestingPositionView[]",
+              "name": "vestingPositions",
+              "type": "tuple[]"
+            },
+            {
+              "components": [
+                {
+                  "internalType": "bytes32",
+                  "name": "positionId",
+                  "type": "bytes32"
+                },
+                {
+                  "internalType": "address",
+                  "name": "owner",
+                  "type": "address"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "amount",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "withdrawnAmount",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "uint64",
+                  "name": "depositedAt",
+                  "type": "uint64"
+                },
+                {
+                  "internalType": "uint64",
+                  "name": "unlockAt",
+                  "type": "uint64"
+                }
+              ],
+              "internalType": "struct Staking.StakingPosition[]",
+              "name": "stakingPositions",
+              "type": "tuple[]"
+            }
+          ],
+          "internalType": "struct Staking.UserStakeDetailsPage",
+          "name": "page",
+          "type": "tuple"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "user",
+          "type": "address"
+        }
+      ],
+      "name": "getUserStakeSummary",
+      "outputs": [
+        {
+          "components": [
+            {
+              "internalType": "uint256",
+              "name": "totalVipStake",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "vestingUnclaimed",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "vestingClaimable",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "stakingLocked",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "stakingWithdrawable",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "stakingWithdrawn",
+              "type": "uint256"
+            }
+          ],
+          "internalType": "struct Staking.UserStakeSummary",
+          "name": "",
+          "type": "tuple"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "coordinator_",
+          "type": "address"
+        },
+        {
+          "internalType": "uint64",
+          "name": "lockDuration_",
+          "type": "uint64"
+        }
+      ],
+      "name": "initialize",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "lockDuration",
+      "outputs": [
+        {
+          "internalType": "uint64",
+          "name": "",
+          "type": "uint64"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "nextPositionId",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "pause",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "paused",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint64",
+          "name": "duration",
+          "type": "uint64"
+        }
+      ],
+      "name": "setLockDuration",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "amount",
+          "type": "uint256"
+        }
+      ],
+      "name": "stake",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "token",
+      "outputs": [
+        {
+          "internalType": "contract IERC20",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "user",
+          "type": "address"
+        }
+      ],
+      "name": "totalStakedBalanceOf",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "amount",
+          "type": "uint256"
+        }
+      ],
+      "name": "unlock",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "unlocked",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "unpause",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "amount",
+          "type": "uint256"
+        }
+      ],
+      "name": "unstake",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "vesting",
+      "outputs": [
+        {
+          "internalType": "contract IVestingDistributor",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "token_",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "recipient",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "amount",
+          "type": "uint256"
+        }
+      ],
+      "name": "withdrawToken",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ],
+  "transactionHash": "0x79687852d422d5cc07bc29943a81080eddbf366adc7d7731b069960d26665360",
+  "receipt": {
+    "to": null,
+    "from": "0xB4eB0EaF19A17eF9F0238eD92b512f22999BD0EC",
+    "contractAddress": "0x4698DAeD07caDbEF5535759cF9de4C469556B9a7",
+    "transactionIndex": 10,
+    "gasUsed": "1881938",
+    "logsBloom": "0x00000000000000000000000000000000000000000000000000000000000000000000000000004000000000000000000000400000000000000000000000000000000000000000000000000000000001000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000080000000000000000000000000000000000000000000000400000000000000000000000000000000000000000000000000000000000000040000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+    "blockHash": "0x35ed4480b69e26b4416d081edb4dfa0d91b375ca582984634802bf48383f5701",
+    "transactionHash": "0x79687852d422d5cc07bc29943a81080eddbf366adc7d7731b069960d26665360",
+    "logs": [
+      {
+        "transactionIndex": 10,
+        "blockNumber": 26155744,
+        "transactionHash": "0x79687852d422d5cc07bc29943a81080eddbf366adc7d7731b069960d26665360",
+        "address": "0x4698DAeD07caDbEF5535759cF9de4C469556B9a7",
+        "topics": [
+          "0x7f26b83ff96e1f2b6a682f133852f6798a09c465da95921460cefb3847402498"
+        ],
+        "data": "0x00000000000000000000000000000000000000000000000000000000000000ff",
+        "logIndex": 106,
+        "blockHash": "0x35ed4480b69e26b4416d081edb4dfa0d91b375ca582984634802bf48383f5701"
+      }
+    ],
+    "blockNumber": 26155744,
+    "cumulativeGasUsed": "5885990",
+    "status": 1,
+    "byzantium": true
+  },
+  "args": [],
+  "numDeployments": 1,
+  "solcInputHash": "4e34b841f1ac5a3066c11be3bbe6bb5b",
+  "metadata": "{\"compiler\":{\"version\":\"0.8.24+commit.e11b9ed9\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"inputs\":[],\"name\":\"NotCoordinatorOwner\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"NothingUnlockable\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"token\",\"type\":\"address\"}],\"name\":\"SafeERC20FailedOperation\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"ZeroAddress\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"ZeroAmount\",\"type\":\"error\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"uint8\",\"name\":\"version\",\"type\":\"uint8\"}],\"name\":\"Initialized\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"Paused\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"uint64\",\"name\":\"oldDuration\",\"type\":\"uint64\"},{\"indexed\":false,\"internalType\":\"uint64\",\"name\":\"newDuration\",\"type\":\"uint64\"}],\"name\":\"StakingLockDurationUpdated\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"bytes32\",\"name\":\"positionId\",\"type\":\"bytes32\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"user\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint64\",\"name\":\"unlockAt\",\"type\":\"uint64\"}],\"name\":\"StakingPositionCreated\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"bytes32\",\"name\":\"positionId\",\"type\":\"bytes32\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"user\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"recipient\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"StakingPositionWithdrawn\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"token\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"recipient\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"TokenWithdrawn\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"user\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"recipient\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"requested\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"fromVesting\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"fromStaking\",\"type\":\"uint256\"}],\"name\":\"TokensUnlocked\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"Unpaused\",\"type\":\"event\"},{\"inputs\":[],\"name\":\"coordinator\",\"outputs\":[{\"internalType\":\"contract ISmartWalletCoordinator\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"deposit\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"user\",\"type\":\"address\"}],\"name\":\"getUserStakeDetails\",\"outputs\":[{\"components\":[{\"components\":[{\"internalType\":\"uint256\",\"name\":\"totalVipStake\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"vestingUnclaimed\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"vestingClaimable\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"stakingLocked\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"stakingWithdrawable\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"stakingWithdrawn\",\"type\":\"uint256\"}],\"internalType\":\"struct Staking.UserStakeSummary\",\"name\":\"summary\",\"type\":\"tuple\"},{\"components\":[{\"internalType\":\"uint8\",\"name\":\"scheduleType\",\"type\":\"uint8\"},{\"internalType\":\"uint8\",\"name\":\"cliffMonths\",\"type\":\"uint8\"},{\"internalType\":\"uint256\",\"name\":\"vestingPeriods\",\"type\":\"uint256\"},{\"internalType\":\"string\",\"name\":\"label\",\"type\":\"string\"},{\"internalType\":\"uint256\",\"name\":\"totalAmount\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"claimedAmount\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"vestedAmount\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"claimableAmount\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"lockedAmount\",\"type\":\"uint256\"},{\"internalType\":\"uint64\",\"name\":\"nextReleaseAt\",\"type\":\"uint64\"}],\"internalType\":\"struct IVestingDistributor.VestingPositionView[]\",\"name\":\"vestingPositions\",\"type\":\"tuple[]\"},{\"components\":[{\"internalType\":\"bytes32\",\"name\":\"positionId\",\"type\":\"bytes32\"},{\"internalType\":\"address\",\"name\":\"owner\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"withdrawnAmount\",\"type\":\"uint256\"},{\"internalType\":\"uint64\",\"name\":\"depositedAt\",\"type\":\"uint64\"},{\"internalType\":\"uint64\",\"name\":\"unlockAt\",\"type\":\"uint64\"}],\"internalType\":\"struct Staking.StakingPosition[]\",\"name\":\"stakingPositions\",\"type\":\"tuple[]\"}],\"internalType\":\"struct Staking.UserStakeDetails\",\"name\":\"details\",\"type\":\"tuple\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"user\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"positionOffset\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"positionLimit\",\"type\":\"uint256\"}],\"name\":\"getUserStakeDetailsPage\",\"outputs\":[{\"components\":[{\"components\":[{\"internalType\":\"uint256\",\"name\":\"totalVipStake\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"vestingUnclaimed\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"vestingClaimable\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"stakingLocked\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"stakingWithdrawable\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"stakingWithdrawn\",\"type\":\"uint256\"}],\"internalType\":\"struct Staking.UserStakeSummary\",\"name\":\"summary\",\"type\":\"tuple\"},{\"internalType\":\"uint256\",\"name\":\"stakingPositionCount\",\"type\":\"uint256\"},{\"components\":[{\"internalType\":\"uint8\",\"name\":\"scheduleType\",\"type\":\"uint8\"},{\"internalType\":\"uint8\",\"name\":\"cliffMonths\",\"type\":\"uint8\"},{\"internalType\":\"uint256\",\"name\":\"vestingPeriods\",\"type\":\"uint256\"},{\"internalType\":\"string\",\"name\":\"label\",\"type\":\"string\"},{\"internalType\":\"uint256\",\"name\":\"totalAmount\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"claimedAmount\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"vestedAmount\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"claimableAmount\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"lockedAmount\",\"type\":\"uint256\"},{\"internalType\":\"uint64\",\"name\":\"nextReleaseAt\",\"type\":\"uint64\"}],\"internalType\":\"struct IVestingDistributor.VestingPositionView[]\",\"name\":\"vestingPositions\",\"type\":\"tuple[]\"},{\"components\":[{\"internalType\":\"bytes32\",\"name\":\"positionId\",\"type\":\"bytes32\"},{\"internalType\":\"address\",\"name\":\"owner\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"withdrawnAmount\",\"type\":\"uint256\"},{\"internalType\":\"uint64\",\"name\":\"depositedAt\",\"type\":\"uint64\"},{\"internalType\":\"uint64\",\"name\":\"unlockAt\",\"type\":\"uint64\"}],\"internalType\":\"struct Staking.StakingPosition[]\",\"name\":\"stakingPositions\",\"type\":\"tuple[]\"}],\"internalType\":\"struct Staking.UserStakeDetailsPage\",\"name\":\"page\",\"type\":\"tuple\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"user\",\"type\":\"address\"}],\"name\":\"getUserStakeSummary\",\"outputs\":[{\"components\":[{\"internalType\":\"uint256\",\"name\":\"totalVipStake\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"vestingUnclaimed\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"vestingClaimable\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"stakingLocked\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"stakingWithdrawable\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"stakingWithdrawn\",\"type\":\"uint256\"}],\"internalType\":\"struct Staking.UserStakeSummary\",\"name\":\"\",\"type\":\"tuple\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"coordinator_\",\"type\":\"address\"},{\"internalType\":\"uint64\",\"name\":\"lockDuration_\",\"type\":\"uint64\"}],\"name\":\"initialize\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"lockDuration\",\"outputs\":[{\"internalType\":\"uint64\",\"name\":\"\",\"type\":\"uint64\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"nextPositionId\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"pause\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"paused\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint64\",\"name\":\"duration\",\"type\":\"uint64\"}],\"name\":\"setLockDuration\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"stake\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"token\",\"outputs\":[{\"internalType\":\"contract IERC20\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"user\",\"type\":\"address\"}],\"name\":\"totalStakedBalanceOf\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"unlock\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"unlocked\",\"type\":\"uint256\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"unpause\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"unstake\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"vesting\",\"outputs\":[{\"internalType\":\"contract IVestingDistributor\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"token_\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"recipient\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"withdrawToken\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"details\":\"Deployed as a transparent proxy. Admin identity is read from      `SmartWalletCoordinator.owner()` at call time; there is no local owner storage.      `lockDuration` applies only to future deposits; existing positions are unaffected by      any subsequent `setLockDuration` call.\",\"errors\":{\"SafeERC20FailedOperation(address)\":[{\"details\":\"An operation with an ERC-20 token failed.\"}]},\"events\":{\"Initialized(uint8)\":{\"details\":\"Triggered when the contract has been initialized or reinitialized.\"},\"Paused(address)\":{\"details\":\"Emitted when the pause is triggered by `account`.\"},\"StakingLockDurationUpdated(uint64,uint64)\":{\"params\":{\"newDuration\":\"New duration in seconds.\",\"oldDuration\":\"Previous duration in seconds.\"}},\"StakingPositionCreated(bytes32,address,uint256,uint64)\":{\"params\":{\"amount\":\"Tokens deposited in wei.\",\"positionId\":\"Unique identifier of the new position.\",\"unlockAt\":\"Earliest timestamp at which the position may be withdrawn.\",\"user\":\"Address of the depositor.\"}},\"StakingPositionWithdrawn(bytes32,address,address,uint256)\":{\"params\":{\"amount\":\"Tokens withdrawn in wei.\",\"positionId\":\"Identifier of the affected position.\",\"recipient\":\"Address that received the tokens.\",\"user\":\"Owner of the position.\"}},\"TokenWithdrawn(address,address,uint256)\":{\"params\":{\"amount\":\"Token amount withdrawn in wei.\",\"recipient\":\"Address that received the withdrawn tokens.\",\"token\":\"ERC-20 token withdrawn from this contract.\"}},\"TokensUnlocked(address,address,uint256,uint256,uint256)\":{\"params\":{\"fromStaking\":\"Tokens sourced from direct staking positions.\",\"fromVesting\":\"Tokens sourced from vesting claims.\",\"recipient\":\"Address that received the tokens (currently always `user`).\",\"requested\":\"Amount requested by the caller.\",\"user\":\"Caller who initiated the withdrawal.\"}},\"Unpaused(address)\":{\"details\":\"Emitted when the pause is lifted by `account`.\"}},\"kind\":\"dev\",\"methods\":{\"constructor\":{\"custom:oz-upgrades-unsafe-allow\":\"constructor\",\"details\":\"Disables initializers on the implementation contract so it cannot be initialized      directly. Initialization must happen atomically through the proxy's constructor.\"},\"deposit(uint256)\":{\"details\":\"Pulls `amount` of the staking token from the caller via `transferFrom`. The caller      must approve this contract before calling. A unique position ID is derived from a      monotonic nonce. `lockDuration` at deposit time determines `unlockAt`.\",\"params\":{\"amount\":\"Token amount to stake in wei.\"}},\"getUserStakeDetails(address)\":{\"params\":{\"user\":\"Account address.\"},\"returns\":{\"details\":\"Summary, all vesting positions (max 4), all staking positions.\"}},\"getUserStakeDetailsPage(address,uint256,uint256)\":{\"details\":\"The `summary` and `stakingPositionCount` always reflect the full account.      Vesting positions are always returned in full (max 4); only staking positions are windowed.\",\"params\":{\"positionLimit\":\"Maximum number of staking positions to return.\",\"positionOffset\":\"Zero-based index of the first staking position to include.\",\"user\":\"Account address.\"},\"returns\":{\"page\":\"Paginated `UserStakeDetailsPage`.\"}},\"getUserStakeSummary(address)\":{\"details\":\"`totalVipStake = vestingUnclaimed + stakingLocked + stakingWithdrawable`.      Tokens already withdrawn are excluded from VIP calculations.\",\"params\":{\"user\":\"Account address.\"},\"returns\":{\"_0\":\"Populated `UserStakeSummary`.\"}},\"initialize(address,uint64)\":{\"details\":\"The vesting contract is not stored here \\u2014 it is resolved at call time from      `coordinator.vestingContract()`.\",\"params\":{\"coordinator_\":\"Address of the deployed `SmartWalletCoordinator`.\",\"lockDuration_\":\"Initial lock period for new staking deposits.\"}},\"paused()\":{\"details\":\"Returns true if the contract is paused, and false otherwise.\"},\"setLockDuration(uint64)\":{\"details\":\"Existing positions are not affected.\",\"params\":{\"duration\":\"New lock period in seconds.\"}},\"stake(uint256)\":{\"details\":\"Pause state is enforced by `deposit`.\",\"params\":{\"amount\":\"Token amount to stake in wei.\"}},\"token()\":{\"returns\":{\"_0\":\"The ERC-20 token address read from `coordinator.stakingToken()`.\"}},\"totalStakedBalanceOf(address)\":{\"details\":\"Equals `vesting.unclaimedBalanceOf(user) + direct staking balance`.\",\"params\":{\"user\":\"Account address.\"},\"returns\":{\"_0\":\"Combined staked balance in wei.\"}},\"unlock(uint256)\":{\"details\":\"Priority order: (1) claimable vesting, (2) unlocked direct staking.      Locked vesting and locked direct staking are never touched.      Vesting tokens are transferred here first; staking tokens are already held here.      A single outbound transfer is made to the caller after all state is updated (CEI).      Reverts if nothing can be unlocked (no claimable vesting and no withdrawable staking).\",\"params\":{\"amount\":\"Maximum tokens to withdraw in wei.\"},\"returns\":{\"unlocked\":\"Actual amount of tokens transferred.\"}},\"unstake(uint256)\":{\"details\":\"Pause state is enforced by `unlock`.\",\"params\":{\"amount\":\"Token amount to withdraw in wei.\"}},\"vesting()\":{\"returns\":{\"_0\":\"The `VestingDistributor` address read from `coordinator.vestingContract()`.\"}},\"withdrawToken(address,address,uint256)\":{\"details\":\"Intentionally permits withdrawing tokens backing direct staking positions. This is a      break-glass action and can leave staking withdrawals underfunded.\",\"params\":{\"amount\":\"Token amount to withdraw in wei.\",\"recipient\":\"Address that receives the withdrawn tokens.\",\"token_\":\"ERC-20 token to withdraw.\"}}},\"stateVariables\":{\"_positions\":{\"details\":\"Staking positions keyed by position ID.\"},\"_userPositionIds\":{\"details\":\"Ordered list of position IDs for each depositor.\"}},\"title\":\"Staking\",\"version\":1},\"userdoc\":{\"errors\":{\"NotCoordinatorOwner()\":[{\"notice\":\"Thrown when a caller other than `coordinator.owner()` invokes an admin function.\"}],\"NothingUnlockable()\":[{\"notice\":\"Thrown when `unlock` finds no claimable vesting or withdrawable staking for the caller.\"}],\"ZeroAddress()\":[{\"notice\":\"Thrown when an address argument is zero.\"}],\"ZeroAmount()\":[{\"notice\":\"Thrown when a zero amount is passed to `deposit` or `unlock`.\"}]},\"events\":{\"StakingLockDurationUpdated(uint64,uint64)\":{\"notice\":\"Emitted when the lock duration for future deposits changes.\"},\"StakingPositionCreated(bytes32,address,uint256,uint64)\":{\"notice\":\"Emitted when a new staking position is created via `deposit`.\"},\"StakingPositionWithdrawn(bytes32,address,address,uint256)\":{\"notice\":\"Emitted once per position whenever tokens are withdrawn from it.\"},\"TokenWithdrawn(address,address,uint256)\":{\"notice\":\"Emitted when the coordinator owner performs an emergency token withdrawal.\"},\"TokensUnlocked(address,address,uint256,uint256,uint256)\":{\"notice\":\"Emitted at the end of every `unlock` call.\"}},\"kind\":\"user\",\"methods\":{\"coordinator()\":{\"notice\":\"The coordinator contract from which admin identity, the staking token and         the vesting contract are read.\"},\"deposit(uint256)\":{\"notice\":\"Opens a new time-locked staking position.\"},\"getUserStakeDetails(address)\":{\"notice\":\"Returns the full account details in a single call.\"},\"getUserStakeDetailsPage(address,uint256,uint256)\":{\"notice\":\"Returns a paginated window of account details.\"},\"getUserStakeSummary(address)\":{\"notice\":\"Returns the aggregated staking and vesting summary for VIP and UI purposes.\"},\"initialize(address,uint64)\":{\"notice\":\"Initialises the contract for proxy deployment.\"},\"lockDuration()\":{\"notice\":\"Seconds added to `block.timestamp` to compute `unlockAt` for new deposits.\"},\"nextPositionId()\":{\"notice\":\"Monotonic counter used as the nonce when deriving position IDs.\"},\"pause()\":{\"notice\":\"Pauses deposits and unlocks.\"},\"setLockDuration(uint64)\":{\"notice\":\"Updates the lock duration applied to future deposits.\"},\"stake(uint256)\":{\"notice\":\"Alias for `deposit` \\u2014 satisfies the `IStaking` interface consumed by SmartWallet.\"},\"token()\":{\"notice\":\"Returns the platform token used for deposits and withdrawals.\"},\"totalStakedBalanceOf(address)\":{\"notice\":\"Returns the combined staked balance used for protocol-level accounting.\"},\"unlock(uint256)\":{\"notice\":\"Withdraws up to `amount` tokens to the caller, claiming vesting first.\"},\"unpause()\":{\"notice\":\"Resumes deposits and unlocks after a pause.\"},\"unstake(uint256)\":{\"notice\":\"Alias for `unlock` \\u2014 satisfies the `IStaking` interface consumed by SmartWallet.\"},\"vesting()\":{\"notice\":\"Returns the vesting contract used for claims and combined balance reads.\"},\"withdrawToken(address,address,uint256)\":{\"notice\":\"Emergency admin withdrawal for any ERC-20 held by this contract.\"}},\"notice\":\"Holds direct staking deposits and acts as the single gateway for withdrawals,         vesting claims, and combined account reads. Users never interact with         `VestingDistributor` directly \\u2014 all claim paths flow through this contract.\",\"version\":1}},\"settings\":{\"compilationTarget\":{\"src/staking/Staking.sol\":\"Staking\"},\"evmVersion\":\"cancun\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"none\",\"useLiteralContent\":true},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"@openzeppelin/contracts-5/interfaces/IERC1363.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\n// OpenZeppelin Contracts (last updated v5.4.0) (interfaces/IERC1363.sol)\\n\\npragma solidity >=0.6.2;\\n\\nimport {IERC20} from \\\"./IERC20.sol\\\";\\nimport {IERC165} from \\\"./IERC165.sol\\\";\\n\\n/**\\n * @title IERC1363\\n * @dev Interface of the ERC-1363 standard as defined in the https://eips.ethereum.org/EIPS/eip-1363[ERC-1363].\\n *\\n * Defines an extension interface for ERC-20 tokens that supports executing code on a recipient contract\\n * after `transfer` or `transferFrom`, or code on a spender contract after `approve`, in a single transaction.\\n */\\ninterface IERC1363 is IERC20, IERC165 {\\n    /*\\n     * Note: the ERC-165 identifier for this interface is 0xb0202a11.\\n     * 0xb0202a11 ===\\n     *   bytes4(keccak256('transferAndCall(address,uint256)')) ^\\n     *   bytes4(keccak256('transferAndCall(address,uint256,bytes)')) ^\\n     *   bytes4(keccak256('transferFromAndCall(address,address,uint256)')) ^\\n     *   bytes4(keccak256('transferFromAndCall(address,address,uint256,bytes)')) ^\\n     *   bytes4(keccak256('approveAndCall(address,uint256)')) ^\\n     *   bytes4(keccak256('approveAndCall(address,uint256,bytes)'))\\n     */\\n\\n    /**\\n     * @dev Moves a `value` amount of tokens from the caller's account to `to`\\n     * and then calls {IERC1363Receiver-onTransferReceived} on `to`.\\n     * @param to The address which you want to transfer to.\\n     * @param value The amount of tokens to be transferred.\\n     * @return A boolean value indicating whether the operation succeeded unless throwing.\\n     */\\n    function transferAndCall(address to, uint256 value) external returns (bool);\\n\\n    /**\\n     * @dev Moves a `value` amount of tokens from the caller's account to `to`\\n     * and then calls {IERC1363Receiver-onTransferReceived} on `to`.\\n     * @param to The address which you want to transfer to.\\n     * @param value The amount of tokens to be transferred.\\n     * @param data Additional data with no specified format, sent in call to `to`.\\n     * @return A boolean value indicating whether the operation succeeded unless throwing.\\n     */\\n    function transferAndCall(address to, uint256 value, bytes calldata data) external returns (bool);\\n\\n    /**\\n     * @dev Moves a `value` amount of tokens from `from` to `to` using the allowance mechanism\\n     * and then calls {IERC1363Receiver-onTransferReceived} on `to`.\\n     * @param from The address which you want to send tokens from.\\n     * @param to The address which you want to transfer to.\\n     * @param value The amount of tokens to be transferred.\\n     * @return A boolean value indicating whether the operation succeeded unless throwing.\\n     */\\n    function transferFromAndCall(address from, address to, uint256 value) external returns (bool);\\n\\n    /**\\n     * @dev Moves a `value` amount of tokens from `from` to `to` using the allowance mechanism\\n     * and then calls {IERC1363Receiver-onTransferReceived} on `to`.\\n     * @param from The address which you want to send tokens from.\\n     * @param to The address which you want to transfer to.\\n     * @param value The amount of tokens to be transferred.\\n     * @param data Additional data with no specified format, sent in call to `to`.\\n     * @return A boolean value indicating whether the operation succeeded unless throwing.\\n     */\\n    function transferFromAndCall(address from, address to, uint256 value, bytes calldata data) external returns (bool);\\n\\n    /**\\n     * @dev Sets a `value` amount of tokens as the allowance of `spender` over the\\n     * caller's tokens and then calls {IERC1363Spender-onApprovalReceived} on `spender`.\\n     * @param spender The address which will spend the funds.\\n     * @param value The amount of tokens to be spent.\\n     * @return A boolean value indicating whether the operation succeeded unless throwing.\\n     */\\n    function approveAndCall(address spender, uint256 value) external returns (bool);\\n\\n    /**\\n     * @dev Sets a `value` amount of tokens as the allowance of `spender` over the\\n     * caller's tokens and then calls {IERC1363Spender-onApprovalReceived} on `spender`.\\n     * @param spender The address which will spend the funds.\\n     * @param value The amount of tokens to be spent.\\n     * @param data Additional data with no specified format, sent in call to `spender`.\\n     * @return A boolean value indicating whether the operation succeeded unless throwing.\\n     */\\n    function approveAndCall(address spender, uint256 value, bytes calldata data) external returns (bool);\\n}\\n\",\"keccak256\":\"0xd5ea07362ab630a6a3dee4285a74cf2377044ca2e4be472755ad64d7c5d4b69d\",\"license\":\"MIT\"},\"@openzeppelin/contracts-5/interfaces/IERC165.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\n// OpenZeppelin Contracts (last updated v5.4.0) (interfaces/IERC165.sol)\\n\\npragma solidity >=0.4.16;\\n\\nimport {IERC165} from \\\"../utils/introspection/IERC165.sol\\\";\\n\",\"keccak256\":\"0x0afcb7e740d1537b252cb2676f600465ce6938398569f09ba1b9ca240dde2dfc\",\"license\":\"MIT\"},\"@openzeppelin/contracts-5/interfaces/IERC20.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\n// OpenZeppelin Contracts (last updated v5.4.0) (interfaces/IERC20.sol)\\n\\npragma solidity >=0.4.16;\\n\\nimport {IERC20} from \\\"../token/ERC20/IERC20.sol\\\";\\n\",\"keccak256\":\"0x1a6221315ce0307746c2c4827c125d821ee796c74a676787762f4778671d4f44\",\"license\":\"MIT\"},\"@openzeppelin/contracts-5/token/ERC20/IERC20.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\n// OpenZeppelin Contracts (last updated v5.4.0) (token/ERC20/IERC20.sol)\\n\\npragma solidity >=0.4.16;\\n\\n/**\\n * @dev Interface of the ERC-20 standard as defined in the ERC.\\n */\\ninterface IERC20 {\\n    /**\\n     * @dev Emitted when `value` tokens are moved from one account (`from`) to\\n     * another (`to`).\\n     *\\n     * Note that `value` may be zero.\\n     */\\n    event Transfer(address indexed from, address indexed to, uint256 value);\\n\\n    /**\\n     * @dev Emitted when the allowance of a `spender` for an `owner` is set by\\n     * a call to {approve}. `value` is the new allowance.\\n     */\\n    event Approval(address indexed owner, address indexed spender, uint256 value);\\n\\n    /**\\n     * @dev Returns the value of tokens in existence.\\n     */\\n    function totalSupply() external view returns (uint256);\\n\\n    /**\\n     * @dev Returns the value of tokens owned by `account`.\\n     */\\n    function balanceOf(address account) external view returns (uint256);\\n\\n    /**\\n     * @dev Moves a `value` amount of tokens from the caller's account to `to`.\\n     *\\n     * Returns a boolean value indicating whether the operation succeeded.\\n     *\\n     * Emits a {Transfer} event.\\n     */\\n    function transfer(address to, uint256 value) external returns (bool);\\n\\n    /**\\n     * @dev Returns the remaining number of tokens that `spender` will be\\n     * allowed to spend on behalf of `owner` through {transferFrom}. This is\\n     * zero by default.\\n     *\\n     * This value changes when {approve} or {transferFrom} are called.\\n     */\\n    function allowance(address owner, address spender) external view returns (uint256);\\n\\n    /**\\n     * @dev Sets a `value` amount of tokens as the allowance of `spender` over the\\n     * caller's tokens.\\n     *\\n     * Returns a boolean value indicating whether the operation succeeded.\\n     *\\n     * IMPORTANT: Beware that changing an allowance with this method brings the risk\\n     * that someone may use both the old and the new allowance by unfortunate\\n     * transaction ordering. One possible solution to mitigate this race\\n     * condition is to first reduce the spender's allowance to 0 and set the\\n     * desired value afterwards:\\n     * https://github.com/ethereum/EIPs/issues/20#issuecomment-263524729\\n     *\\n     * Emits an {Approval} event.\\n     */\\n    function approve(address spender, uint256 value) external returns (bool);\\n\\n    /**\\n     * @dev Moves a `value` amount of tokens from `from` to `to` using the\\n     * allowance mechanism. `value` is then deducted from the caller's\\n     * allowance.\\n     *\\n     * Returns a boolean value indicating whether the operation succeeded.\\n     *\\n     * Emits a {Transfer} event.\\n     */\\n    function transferFrom(address from, address to, uint256 value) external returns (bool);\\n}\\n\",\"keccak256\":\"0x74ed01eb66b923d0d0cfe3be84604ac04b76482a55f9dd655e1ef4d367f95bc2\",\"license\":\"MIT\"},\"@openzeppelin/contracts-5/token/ERC20/utils/SafeERC20.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\n// OpenZeppelin Contracts (last updated v5.5.0) (token/ERC20/utils/SafeERC20.sol)\\n\\npragma solidity ^0.8.20;\\n\\nimport {IERC20} from \\\"../IERC20.sol\\\";\\nimport {IERC1363} from \\\"../../../interfaces/IERC1363.sol\\\";\\n\\n/**\\n * @title SafeERC20\\n * @dev Wrappers around ERC-20 operations that throw on failure (when the token\\n * contract returns false). Tokens that return no value (and instead revert or\\n * throw on failure) are also supported, non-reverting calls are assumed to be\\n * successful.\\n * To use this library you can add a `using SafeERC20 for IERC20;` statement to your contract,\\n * which allows you to call the safe operations as `token.safeTransfer(...)`, etc.\\n */\\nlibrary SafeERC20 {\\n    /**\\n     * @dev An operation with an ERC-20 token failed.\\n     */\\n    error SafeERC20FailedOperation(address token);\\n\\n    /**\\n     * @dev Indicates a failed `decreaseAllowance` request.\\n     */\\n    error SafeERC20FailedDecreaseAllowance(address spender, uint256 currentAllowance, uint256 requestedDecrease);\\n\\n    /**\\n     * @dev Transfer `value` amount of `token` from the calling contract to `to`. If `token` returns no value,\\n     * non-reverting calls are assumed to be successful.\\n     */\\n    function safeTransfer(IERC20 token, address to, uint256 value) internal {\\n        if (!_safeTransfer(token, to, value, true)) {\\n            revert SafeERC20FailedOperation(address(token));\\n        }\\n    }\\n\\n    /**\\n     * @dev Transfer `value` amount of `token` from `from` to `to`, spending the approval given by `from` to the\\n     * calling contract. If `token` returns no value, non-reverting calls are assumed to be successful.\\n     */\\n    function safeTransferFrom(IERC20 token, address from, address to, uint256 value) internal {\\n        if (!_safeTransferFrom(token, from, to, value, true)) {\\n            revert SafeERC20FailedOperation(address(token));\\n        }\\n    }\\n\\n    /**\\n     * @dev Variant of {safeTransfer} that returns a bool instead of reverting if the operation is not successful.\\n     */\\n    function trySafeTransfer(IERC20 token, address to, uint256 value) internal returns (bool) {\\n        return _safeTransfer(token, to, value, false);\\n    }\\n\\n    /**\\n     * @dev Variant of {safeTransferFrom} that returns a bool instead of reverting if the operation is not successful.\\n     */\\n    function trySafeTransferFrom(IERC20 token, address from, address to, uint256 value) internal returns (bool) {\\n        return _safeTransferFrom(token, from, to, value, false);\\n    }\\n\\n    /**\\n     * @dev Increase the calling contract's allowance toward `spender` by `value`. If `token` returns no value,\\n     * non-reverting calls are assumed to be successful.\\n     *\\n     * IMPORTANT: If the token implements ERC-7674 (ERC-20 with temporary allowance), and if the \\\"client\\\"\\n     * smart contract uses ERC-7674 to set temporary allowances, then the \\\"client\\\" smart contract should avoid using\\n     * this function. Performing a {safeIncreaseAllowance} or {safeDecreaseAllowance} operation on a token contract\\n     * that has a non-zero temporary allowance (for that particular owner-spender) will result in unexpected behavior.\\n     */\\n    function safeIncreaseAllowance(IERC20 token, address spender, uint256 value) internal {\\n        uint256 oldAllowance = token.allowance(address(this), spender);\\n        forceApprove(token, spender, oldAllowance + value);\\n    }\\n\\n    /**\\n     * @dev Decrease the calling contract's allowance toward `spender` by `requestedDecrease`. If `token` returns no\\n     * value, non-reverting calls are assumed to be successful.\\n     *\\n     * IMPORTANT: If the token implements ERC-7674 (ERC-20 with temporary allowance), and if the \\\"client\\\"\\n     * smart contract uses ERC-7674 to set temporary allowances, then the \\\"client\\\" smart contract should avoid using\\n     * this function. Performing a {safeIncreaseAllowance} or {safeDecreaseAllowance} operation on a token contract\\n     * that has a non-zero temporary allowance (for that particular owner-spender) will result in unexpected behavior.\\n     */\\n    function safeDecreaseAllowance(IERC20 token, address spender, uint256 requestedDecrease) internal {\\n        unchecked {\\n            uint256 currentAllowance = token.allowance(address(this), spender);\\n            if (currentAllowance < requestedDecrease) {\\n                revert SafeERC20FailedDecreaseAllowance(spender, currentAllowance, requestedDecrease);\\n            }\\n            forceApprove(token, spender, currentAllowance - requestedDecrease);\\n        }\\n    }\\n\\n    /**\\n     * @dev Set the calling contract's allowance toward `spender` to `value`. If `token` returns no value,\\n     * non-reverting calls are assumed to be successful. Meant to be used with tokens that require the approval\\n     * to be set to zero before setting it to a non-zero value, such as USDT.\\n     *\\n     * NOTE: If the token implements ERC-7674, this function will not modify any temporary allowance. This function\\n     * only sets the \\\"standard\\\" allowance. Any temporary allowance will remain active, in addition to the value being\\n     * set here.\\n     */\\n    function forceApprove(IERC20 token, address spender, uint256 value) internal {\\n        if (!_safeApprove(token, spender, value, false)) {\\n            if (!_safeApprove(token, spender, 0, true)) revert SafeERC20FailedOperation(address(token));\\n            if (!_safeApprove(token, spender, value, true)) revert SafeERC20FailedOperation(address(token));\\n        }\\n    }\\n\\n    /**\\n     * @dev Performs an {ERC1363} transferAndCall, with a fallback to the simple {ERC20} transfer if the target has no\\n     * code. This can be used to implement an {ERC721}-like safe transfer that relies on {ERC1363} checks when\\n     * targeting contracts.\\n     *\\n     * Reverts if the returned value is other than `true`.\\n     */\\n    function transferAndCallRelaxed(IERC1363 token, address to, uint256 value, bytes memory data) internal {\\n        if (to.code.length == 0) {\\n            safeTransfer(token, to, value);\\n        } else if (!token.transferAndCall(to, value, data)) {\\n            revert SafeERC20FailedOperation(address(token));\\n        }\\n    }\\n\\n    /**\\n     * @dev Performs an {ERC1363} transferFromAndCall, with a fallback to the simple {ERC20} transferFrom if the target\\n     * has no code. This can be used to implement an {ERC721}-like safe transfer that relies on {ERC1363} checks when\\n     * targeting contracts.\\n     *\\n     * Reverts if the returned value is other than `true`.\\n     */\\n    function transferFromAndCallRelaxed(\\n        IERC1363 token,\\n        address from,\\n        address to,\\n        uint256 value,\\n        bytes memory data\\n    ) internal {\\n        if (to.code.length == 0) {\\n            safeTransferFrom(token, from, to, value);\\n        } else if (!token.transferFromAndCall(from, to, value, data)) {\\n            revert SafeERC20FailedOperation(address(token));\\n        }\\n    }\\n\\n    /**\\n     * @dev Performs an {ERC1363} approveAndCall, with a fallback to the simple {ERC20} approve if the target has no\\n     * code. This can be used to implement an {ERC721}-like safe transfer that rely on {ERC1363} checks when\\n     * targeting contracts.\\n     *\\n     * NOTE: When the recipient address (`to`) has no code (i.e. is an EOA), this function behaves as {forceApprove}.\\n     * Oppositely, when the recipient address (`to`) has code, this function only attempts to call {ERC1363-approveAndCall}\\n     * once without retrying, and relies on the returned value to be true.\\n     *\\n     * Reverts if the returned value is other than `true`.\\n     */\\n    function approveAndCallRelaxed(IERC1363 token, address to, uint256 value, bytes memory data) internal {\\n        if (to.code.length == 0) {\\n            forceApprove(token, to, value);\\n        } else if (!token.approveAndCall(to, value, data)) {\\n            revert SafeERC20FailedOperation(address(token));\\n        }\\n    }\\n\\n    /**\\n     * @dev Imitates a Solidity `token.transfer(to, value)` call, relaxing the requirement on the return value: the\\n     * return value is optional (but if data is returned, it must not be false).\\n     *\\n     * @param token The token targeted by the call.\\n     * @param to The recipient of the tokens\\n     * @param value The amount of token to transfer\\n     * @param bubble Behavior switch if the transfer call reverts: bubble the revert reason or return a false boolean.\\n     */\\n    function _safeTransfer(IERC20 token, address to, uint256 value, bool bubble) private returns (bool success) {\\n        bytes4 selector = IERC20.transfer.selector;\\n\\n        assembly (\\\"memory-safe\\\") {\\n            let fmp := mload(0x40)\\n            mstore(0x00, selector)\\n            mstore(0x04, and(to, shr(96, not(0))))\\n            mstore(0x24, value)\\n            success := call(gas(), token, 0, 0x00, 0x44, 0x00, 0x20)\\n            // if call success and return is true, all is good.\\n            // otherwise (not success or return is not true), we need to perform further checks\\n            if iszero(and(success, eq(mload(0x00), 1))) {\\n                // if the call was a failure and bubble is enabled, bubble the error\\n                if and(iszero(success), bubble) {\\n                    returndatacopy(fmp, 0x00, returndatasize())\\n                    revert(fmp, returndatasize())\\n                }\\n                // if the return value is not true, then the call is only successful if:\\n                // - the token address has code\\n                // - the returndata is empty\\n                success := and(success, and(iszero(returndatasize()), gt(extcodesize(token), 0)))\\n            }\\n            mstore(0x40, fmp)\\n        }\\n    }\\n\\n    /**\\n     * @dev Imitates a Solidity `token.transferFrom(from, to, value)` call, relaxing the requirement on the return\\n     * value: the return value is optional (but if data is returned, it must not be false).\\n     *\\n     * @param token The token targeted by the call.\\n     * @param from The sender of the tokens\\n     * @param to The recipient of the tokens\\n     * @param value The amount of token to transfer\\n     * @param bubble Behavior switch if the transfer call reverts: bubble the revert reason or return a false boolean.\\n     */\\n    function _safeTransferFrom(\\n        IERC20 token,\\n        address from,\\n        address to,\\n        uint256 value,\\n        bool bubble\\n    ) private returns (bool success) {\\n        bytes4 selector = IERC20.transferFrom.selector;\\n\\n        assembly (\\\"memory-safe\\\") {\\n            let fmp := mload(0x40)\\n            mstore(0x00, selector)\\n            mstore(0x04, and(from, shr(96, not(0))))\\n            mstore(0x24, and(to, shr(96, not(0))))\\n            mstore(0x44, value)\\n            success := call(gas(), token, 0, 0x00, 0x64, 0x00, 0x20)\\n            // if call success and return is true, all is good.\\n            // otherwise (not success or return is not true), we need to perform further checks\\n            if iszero(and(success, eq(mload(0x00), 1))) {\\n                // if the call was a failure and bubble is enabled, bubble the error\\n                if and(iszero(success), bubble) {\\n                    returndatacopy(fmp, 0x00, returndatasize())\\n                    revert(fmp, returndatasize())\\n                }\\n                // if the return value is not true, then the call is only successful if:\\n                // - the token address has code\\n                // - the returndata is empty\\n                success := and(success, and(iszero(returndatasize()), gt(extcodesize(token), 0)))\\n            }\\n            mstore(0x40, fmp)\\n            mstore(0x60, 0)\\n        }\\n    }\\n\\n    /**\\n     * @dev Imitates a Solidity `token.approve(spender, value)` call, relaxing the requirement on the return value:\\n     * the return value is optional (but if data is returned, it must not be false).\\n     *\\n     * @param token The token targeted by the call.\\n     * @param spender The spender of the tokens\\n     * @param value The amount of token to transfer\\n     * @param bubble Behavior switch if the transfer call reverts: bubble the revert reason or return a false boolean.\\n     */\\n    function _safeApprove(IERC20 token, address spender, uint256 value, bool bubble) private returns (bool success) {\\n        bytes4 selector = IERC20.approve.selector;\\n\\n        assembly (\\\"memory-safe\\\") {\\n            let fmp := mload(0x40)\\n            mstore(0x00, selector)\\n            mstore(0x04, and(spender, shr(96, not(0))))\\n            mstore(0x24, value)\\n            success := call(gas(), token, 0, 0x00, 0x44, 0x00, 0x20)\\n            // if call success and return is true, all is good.\\n            // otherwise (not success or return is not true), we need to perform further checks\\n            if iszero(and(success, eq(mload(0x00), 1))) {\\n                // if the call was a failure and bubble is enabled, bubble the error\\n                if and(iszero(success), bubble) {\\n                    returndatacopy(fmp, 0x00, returndatasize())\\n                    revert(fmp, returndatasize())\\n                }\\n                // if the return value is not true, then the call is only successful if:\\n                // - the token address has code\\n                // - the returndata is empty\\n                success := and(success, and(iszero(returndatasize()), gt(extcodesize(token), 0)))\\n            }\\n            mstore(0x40, fmp)\\n        }\\n    }\\n}\\n\",\"keccak256\":\"0x304d732678032a9781ae85c8f204c8fba3d3a5e31c02616964e75cfdc5049098\",\"license\":\"MIT\"},\"@openzeppelin/contracts-5/utils/introspection/IERC165.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\n// OpenZeppelin Contracts (last updated v5.4.0) (utils/introspection/IERC165.sol)\\n\\npragma solidity >=0.4.16;\\n\\n/**\\n * @dev Interface of the ERC-165 standard, as defined in the\\n * https://eips.ethereum.org/EIPS/eip-165[ERC].\\n *\\n * Implementers can declare support of contract interfaces, which can then be\\n * queried by others ({ERC165Checker}).\\n *\\n * For an implementation, see {ERC165}.\\n */\\ninterface IERC165 {\\n    /**\\n     * @dev Returns true if this contract implements the interface defined by\\n     * `interfaceId`. See the corresponding\\n     * https://eips.ethereum.org/EIPS/eip-165#how-interfaces-are-identified[ERC section]\\n     * to learn more about how these ids are created.\\n     *\\n     * This function call must use less than 30 000 gas.\\n     */\\n    function supportsInterface(bytes4 interfaceId) external view returns (bool);\\n}\\n\",\"keccak256\":\"0x8891738ffe910f0cf2da09566928589bf5d63f4524dd734fd9cedbac3274dd5c\",\"license\":\"MIT\"},\"@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\n// OpenZeppelin Contracts (last updated v4.9.0) (proxy/utils/Initializable.sol)\\n\\npragma solidity ^0.8.2;\\n\\nimport \\\"../../utils/AddressUpgradeable.sol\\\";\\n\\n/**\\n * @dev This is a base contract to aid in writing upgradeable contracts, or any kind of contract that will be deployed\\n * behind a proxy. Since proxied contracts do not make use of a constructor, it's common to move constructor logic to an\\n * external initializer function, usually called `initialize`. It then becomes necessary to protect this initializer\\n * function so it can only be called once. The {initializer} modifier provided by this contract will have this effect.\\n *\\n * The initialization functions use a version number. Once a version number is used, it is consumed and cannot be\\n * reused. This mechanism prevents re-execution of each \\\"step\\\" but allows the creation of new initialization steps in\\n * case an upgrade adds a module that needs to be initialized.\\n *\\n * For example:\\n *\\n * [.hljs-theme-light.nopadding]\\n * ```solidity\\n * contract MyToken is ERC20Upgradeable {\\n *     function initialize() initializer public {\\n *         __ERC20_init(\\\"MyToken\\\", \\\"MTK\\\");\\n *     }\\n * }\\n *\\n * contract MyTokenV2 is MyToken, ERC20PermitUpgradeable {\\n *     function initializeV2() reinitializer(2) public {\\n *         __ERC20Permit_init(\\\"MyToken\\\");\\n *     }\\n * }\\n * ```\\n *\\n * TIP: To avoid leaving the proxy in an uninitialized state, the initializer function should be called as early as\\n * possible by providing the encoded function call as the `_data` argument to {ERC1967Proxy-constructor}.\\n *\\n * CAUTION: When used with inheritance, manual care must be taken to not invoke a parent initializer twice, or to ensure\\n * that all initializers are idempotent. This is not verified automatically as constructors are by Solidity.\\n *\\n * [CAUTION]\\n * ====\\n * Avoid leaving a contract uninitialized.\\n *\\n * An uninitialized contract can be taken over by an attacker. This applies to both a proxy and its implementation\\n * contract, which may impact the proxy. To prevent the implementation contract from being used, you should invoke\\n * the {_disableInitializers} function in the constructor to automatically lock it when it is deployed:\\n *\\n * [.hljs-theme-light.nopadding]\\n * ```\\n * /// @custom:oz-upgrades-unsafe-allow constructor\\n * constructor() {\\n *     _disableInitializers();\\n * }\\n * ```\\n * ====\\n */\\nabstract contract Initializable {\\n    /**\\n     * @dev Indicates that the contract has been initialized.\\n     * @custom:oz-retyped-from bool\\n     */\\n    uint8 private _initialized;\\n\\n    /**\\n     * @dev Indicates that the contract is in the process of being initialized.\\n     */\\n    bool private _initializing;\\n\\n    /**\\n     * @dev Triggered when the contract has been initialized or reinitialized.\\n     */\\n    event Initialized(uint8 version);\\n\\n    /**\\n     * @dev A modifier that defines a protected initializer function that can be invoked at most once. In its scope,\\n     * `onlyInitializing` functions can be used to initialize parent contracts.\\n     *\\n     * Similar to `reinitializer(1)`, except that functions marked with `initializer` can be nested in the context of a\\n     * constructor.\\n     *\\n     * Emits an {Initialized} event.\\n     */\\n    modifier initializer() {\\n        bool isTopLevelCall = !_initializing;\\n        require(\\n            (isTopLevelCall && _initialized < 1) || (!AddressUpgradeable.isContract(address(this)) && _initialized == 1),\\n            \\\"Initializable: contract is already initialized\\\"\\n        );\\n        _initialized = 1;\\n        if (isTopLevelCall) {\\n            _initializing = true;\\n        }\\n        _;\\n        if (isTopLevelCall) {\\n            _initializing = false;\\n            emit Initialized(1);\\n        }\\n    }\\n\\n    /**\\n     * @dev A modifier that defines a protected reinitializer function that can be invoked at most once, and only if the\\n     * contract hasn't been initialized to a greater version before. In its scope, `onlyInitializing` functions can be\\n     * used to initialize parent contracts.\\n     *\\n     * A reinitializer may be used after the original initialization step. This is essential to configure modules that\\n     * are added through upgrades and that require initialization.\\n     *\\n     * When `version` is 1, this modifier is similar to `initializer`, except that functions marked with `reinitializer`\\n     * cannot be nested. If one is invoked in the context of another, execution will revert.\\n     *\\n     * Note that versions can jump in increments greater than 1; this implies that if multiple reinitializers coexist in\\n     * a contract, executing them in the right order is up to the developer or operator.\\n     *\\n     * WARNING: setting the version to 255 will prevent any future reinitialization.\\n     *\\n     * Emits an {Initialized} event.\\n     */\\n    modifier reinitializer(uint8 version) {\\n        require(!_initializing && _initialized < version, \\\"Initializable: contract is already initialized\\\");\\n        _initialized = version;\\n        _initializing = true;\\n        _;\\n        _initializing = false;\\n        emit Initialized(version);\\n    }\\n\\n    /**\\n     * @dev Modifier to protect an initialization function so that it can only be invoked by functions with the\\n     * {initializer} and {reinitializer} modifiers, directly or indirectly.\\n     */\\n    modifier onlyInitializing() {\\n        require(_initializing, \\\"Initializable: contract is not initializing\\\");\\n        _;\\n    }\\n\\n    /**\\n     * @dev Locks the contract, preventing any future reinitialization. This cannot be part of an initializer call.\\n     * Calling this in the constructor of a contract will prevent that contract from being initialized or reinitialized\\n     * to any version. It is recommended to use this to lock implementation contracts that are designed to be called\\n     * through proxies.\\n     *\\n     * Emits an {Initialized} event the first time it is successfully executed.\\n     */\\n    function _disableInitializers() internal virtual {\\n        require(!_initializing, \\\"Initializable: contract is initializing\\\");\\n        if (_initialized != type(uint8).max) {\\n            _initialized = type(uint8).max;\\n            emit Initialized(type(uint8).max);\\n        }\\n    }\\n\\n    /**\\n     * @dev Returns the highest version that has been initialized. See {reinitializer}.\\n     */\\n    function _getInitializedVersion() internal view returns (uint8) {\\n        return _initialized;\\n    }\\n\\n    /**\\n     * @dev Returns `true` if the contract is currently initializing. See {onlyInitializing}.\\n     */\\n    function _isInitializing() internal view returns (bool) {\\n        return _initializing;\\n    }\\n}\\n\",\"keccak256\":\"0x89be10e757d242e9b18d5a32c9fbe2019f6d63052bbe46397a430a1d60d7f794\",\"license\":\"MIT\"},\"@openzeppelin/contracts-upgradeable/security/PausableUpgradeable.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\n// OpenZeppelin Contracts (last updated v4.7.0) (security/Pausable.sol)\\n\\npragma solidity ^0.8.0;\\n\\nimport \\\"../utils/ContextUpgradeable.sol\\\";\\nimport \\\"../proxy/utils/Initializable.sol\\\";\\n\\n/**\\n * @dev Contract module which allows children to implement an emergency stop\\n * mechanism that can be triggered by an authorized account.\\n *\\n * This module is used through inheritance. It will make available the\\n * modifiers `whenNotPaused` and `whenPaused`, which can be applied to\\n * the functions of your contract. Note that they will not be pausable by\\n * simply including this module, only once the modifiers are put in place.\\n */\\nabstract contract PausableUpgradeable is Initializable, ContextUpgradeable {\\n    /**\\n     * @dev Emitted when the pause is triggered by `account`.\\n     */\\n    event Paused(address account);\\n\\n    /**\\n     * @dev Emitted when the pause is lifted by `account`.\\n     */\\n    event Unpaused(address account);\\n\\n    bool private _paused;\\n\\n    /**\\n     * @dev Initializes the contract in unpaused state.\\n     */\\n    function __Pausable_init() internal onlyInitializing {\\n        __Pausable_init_unchained();\\n    }\\n\\n    function __Pausable_init_unchained() internal onlyInitializing {\\n        _paused = false;\\n    }\\n\\n    /**\\n     * @dev Modifier to make a function callable only when the contract is not paused.\\n     *\\n     * Requirements:\\n     *\\n     * - The contract must not be paused.\\n     */\\n    modifier whenNotPaused() {\\n        _requireNotPaused();\\n        _;\\n    }\\n\\n    /**\\n     * @dev Modifier to make a function callable only when the contract is paused.\\n     *\\n     * Requirements:\\n     *\\n     * - The contract must be paused.\\n     */\\n    modifier whenPaused() {\\n        _requirePaused();\\n        _;\\n    }\\n\\n    /**\\n     * @dev Returns true if the contract is paused, and false otherwise.\\n     */\\n    function paused() public view virtual returns (bool) {\\n        return _paused;\\n    }\\n\\n    /**\\n     * @dev Throws if the contract is paused.\\n     */\\n    function _requireNotPaused() internal view virtual {\\n        require(!paused(), \\\"Pausable: paused\\\");\\n    }\\n\\n    /**\\n     * @dev Throws if the contract is not paused.\\n     */\\n    function _requirePaused() internal view virtual {\\n        require(paused(), \\\"Pausable: not paused\\\");\\n    }\\n\\n    /**\\n     * @dev Triggers stopped state.\\n     *\\n     * Requirements:\\n     *\\n     * - The contract must not be paused.\\n     */\\n    function _pause() internal virtual whenNotPaused {\\n        _paused = true;\\n        emit Paused(_msgSender());\\n    }\\n\\n    /**\\n     * @dev Returns to normal state.\\n     *\\n     * Requirements:\\n     *\\n     * - The contract must be paused.\\n     */\\n    function _unpause() internal virtual whenPaused {\\n        _paused = false;\\n        emit Unpaused(_msgSender());\\n    }\\n\\n    /**\\n     * @dev This empty reserved space is put in place to allow future versions to add new\\n     * variables without shifting down storage in the inheritance chain.\\n     * See https://docs.openzeppelin.com/contracts/4.x/upgradeable#storage_gaps\\n     */\\n    uint256[49] private __gap;\\n}\\n\",\"keccak256\":\"0x40c636b4572ff5f1dc50cf22097e93c0723ee14eff87e99ac2b02636eeca1250\",\"license\":\"MIT\"},\"@openzeppelin/contracts-upgradeable/utils/AddressUpgradeable.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\n// OpenZeppelin Contracts (last updated v4.9.0) (utils/Address.sol)\\n\\npragma solidity ^0.8.1;\\n\\n/**\\n * @dev Collection of functions related to the address type\\n */\\nlibrary AddressUpgradeable {\\n    /**\\n     * @dev Returns true if `account` is a contract.\\n     *\\n     * [IMPORTANT]\\n     * ====\\n     * It is unsafe to assume that an address for which this function returns\\n     * false is an externally-owned account (EOA) and not a contract.\\n     *\\n     * Among others, `isContract` will return false for the following\\n     * types of addresses:\\n     *\\n     *  - an externally-owned account\\n     *  - a contract in construction\\n     *  - an address where a contract will be created\\n     *  - an address where a contract lived, but was destroyed\\n     *\\n     * Furthermore, `isContract` will also return true if the target contract within\\n     * the same transaction is already scheduled for destruction by `SELFDESTRUCT`,\\n     * which only has an effect at the end of a transaction.\\n     * ====\\n     *\\n     * [IMPORTANT]\\n     * ====\\n     * You shouldn't rely on `isContract` to protect against flash loan attacks!\\n     *\\n     * Preventing calls from contracts is highly discouraged. It breaks composability, breaks support for smart wallets\\n     * like Gnosis Safe, and does not provide security since it can be circumvented by calling from a contract\\n     * constructor.\\n     * ====\\n     */\\n    function isContract(address account) internal view returns (bool) {\\n        // This method relies on extcodesize/address.code.length, which returns 0\\n        // for contracts in construction, since the code is only stored at the end\\n        // of the constructor execution.\\n\\n        return account.code.length > 0;\\n    }\\n\\n    /**\\n     * @dev Replacement for Solidity's `transfer`: sends `amount` wei to\\n     * `recipient`, forwarding all available gas and reverting on errors.\\n     *\\n     * https://eips.ethereum.org/EIPS/eip-1884[EIP1884] increases the gas cost\\n     * of certain opcodes, possibly making contracts go over the 2300 gas limit\\n     * imposed by `transfer`, making them unable to receive funds via\\n     * `transfer`. {sendValue} removes this limitation.\\n     *\\n     * https://consensys.net/diligence/blog/2019/09/stop-using-soliditys-transfer-now/[Learn more].\\n     *\\n     * IMPORTANT: because control is transferred to `recipient`, care must be\\n     * taken to not create reentrancy vulnerabilities. Consider using\\n     * {ReentrancyGuard} or the\\n     * https://solidity.readthedocs.io/en/v0.8.0/security-considerations.html#use-the-checks-effects-interactions-pattern[checks-effects-interactions pattern].\\n     */\\n    function sendValue(address payable recipient, uint256 amount) internal {\\n        require(address(this).balance >= amount, \\\"Address: insufficient balance\\\");\\n\\n        (bool success, ) = recipient.call{value: amount}(\\\"\\\");\\n        require(success, \\\"Address: unable to send value, recipient may have reverted\\\");\\n    }\\n\\n    /**\\n     * @dev Performs a Solidity function call using a low level `call`. A\\n     * plain `call` is an unsafe replacement for a function call: use this\\n     * function instead.\\n     *\\n     * If `target` reverts with a revert reason, it is bubbled up by this\\n     * function (like regular Solidity function calls).\\n     *\\n     * Returns the raw returned data. To convert to the expected return value,\\n     * use https://solidity.readthedocs.io/en/latest/units-and-global-variables.html?highlight=abi.decode#abi-encoding-and-decoding-functions[`abi.decode`].\\n     *\\n     * Requirements:\\n     *\\n     * - `target` must be a contract.\\n     * - calling `target` with `data` must not revert.\\n     *\\n     * _Available since v3.1._\\n     */\\n    function functionCall(address target, bytes memory data) internal returns (bytes memory) {\\n        return functionCallWithValue(target, data, 0, \\\"Address: low-level call failed\\\");\\n    }\\n\\n    /**\\n     * @dev Same as {xref-Address-functionCall-address-bytes-}[`functionCall`], but with\\n     * `errorMessage` as a fallback revert reason when `target` reverts.\\n     *\\n     * _Available since v3.1._\\n     */\\n    function functionCall(\\n        address target,\\n        bytes memory data,\\n        string memory errorMessage\\n    ) internal returns (bytes memory) {\\n        return functionCallWithValue(target, data, 0, errorMessage);\\n    }\\n\\n    /**\\n     * @dev Same as {xref-Address-functionCall-address-bytes-}[`functionCall`],\\n     * but also transferring `value` wei to `target`.\\n     *\\n     * Requirements:\\n     *\\n     * - the calling contract must have an ETH balance of at least `value`.\\n     * - the called Solidity function must be `payable`.\\n     *\\n     * _Available since v3.1._\\n     */\\n    function functionCallWithValue(address target, bytes memory data, uint256 value) internal returns (bytes memory) {\\n        return functionCallWithValue(target, data, value, \\\"Address: low-level call with value failed\\\");\\n    }\\n\\n    /**\\n     * @dev Same as {xref-Address-functionCallWithValue-address-bytes-uint256-}[`functionCallWithValue`], but\\n     * with `errorMessage` as a fallback revert reason when `target` reverts.\\n     *\\n     * _Available since v3.1._\\n     */\\n    function functionCallWithValue(\\n        address target,\\n        bytes memory data,\\n        uint256 value,\\n        string memory errorMessage\\n    ) internal returns (bytes memory) {\\n        require(address(this).balance >= value, \\\"Address: insufficient balance for call\\\");\\n        (bool success, bytes memory returndata) = target.call{value: value}(data);\\n        return verifyCallResultFromTarget(target, success, returndata, errorMessage);\\n    }\\n\\n    /**\\n     * @dev Same as {xref-Address-functionCall-address-bytes-}[`functionCall`],\\n     * but performing a static call.\\n     *\\n     * _Available since v3.3._\\n     */\\n    function functionStaticCall(address target, bytes memory data) internal view returns (bytes memory) {\\n        return functionStaticCall(target, data, \\\"Address: low-level static call failed\\\");\\n    }\\n\\n    /**\\n     * @dev Same as {xref-Address-functionCall-address-bytes-string-}[`functionCall`],\\n     * but performing a static call.\\n     *\\n     * _Available since v3.3._\\n     */\\n    function functionStaticCall(\\n        address target,\\n        bytes memory data,\\n        string memory errorMessage\\n    ) internal view returns (bytes memory) {\\n        (bool success, bytes memory returndata) = target.staticcall(data);\\n        return verifyCallResultFromTarget(target, success, returndata, errorMessage);\\n    }\\n\\n    /**\\n     * @dev Same as {xref-Address-functionCall-address-bytes-}[`functionCall`],\\n     * but performing a delegate call.\\n     *\\n     * _Available since v3.4._\\n     */\\n    function functionDelegateCall(address target, bytes memory data) internal returns (bytes memory) {\\n        return functionDelegateCall(target, data, \\\"Address: low-level delegate call failed\\\");\\n    }\\n\\n    /**\\n     * @dev Same as {xref-Address-functionCall-address-bytes-string-}[`functionCall`],\\n     * but performing a delegate call.\\n     *\\n     * _Available since v3.4._\\n     */\\n    function functionDelegateCall(\\n        address target,\\n        bytes memory data,\\n        string memory errorMessage\\n    ) internal returns (bytes memory) {\\n        (bool success, bytes memory returndata) = target.delegatecall(data);\\n        return verifyCallResultFromTarget(target, success, returndata, errorMessage);\\n    }\\n\\n    /**\\n     * @dev Tool to verify that a low level call to smart-contract was successful, and revert (either by bubbling\\n     * the revert reason or using the provided one) in case of unsuccessful call or if target was not a contract.\\n     *\\n     * _Available since v4.8._\\n     */\\n    function verifyCallResultFromTarget(\\n        address target,\\n        bool success,\\n        bytes memory returndata,\\n        string memory errorMessage\\n    ) internal view returns (bytes memory) {\\n        if (success) {\\n            if (returndata.length == 0) {\\n                // only check isContract if the call was successful and the return data is empty\\n                // otherwise we already know that it was a contract\\n                require(isContract(target), \\\"Address: call to non-contract\\\");\\n            }\\n            return returndata;\\n        } else {\\n            _revert(returndata, errorMessage);\\n        }\\n    }\\n\\n    /**\\n     * @dev Tool to verify that a low level call was successful, and revert if it wasn't, either by bubbling the\\n     * revert reason or using the provided one.\\n     *\\n     * _Available since v4.3._\\n     */\\n    function verifyCallResult(\\n        bool success,\\n        bytes memory returndata,\\n        string memory errorMessage\\n    ) internal pure returns (bytes memory) {\\n        if (success) {\\n            return returndata;\\n        } else {\\n            _revert(returndata, errorMessage);\\n        }\\n    }\\n\\n    function _revert(bytes memory returndata, string memory errorMessage) private pure {\\n        // Look for revert reason and bubble it up if present\\n        if (returndata.length > 0) {\\n            // The easiest way to bubble the revert reason is using memory via assembly\\n            /// @solidity memory-safe-assembly\\n            assembly {\\n                let returndata_size := mload(returndata)\\n                revert(add(32, returndata), returndata_size)\\n            }\\n        } else {\\n            revert(errorMessage);\\n        }\\n    }\\n}\\n\",\"keccak256\":\"0x9c80f545915582e63fe206c6ce27cbe85a86fc10b9cd2a0e8c9488fb7c2ee422\",\"license\":\"MIT\"},\"@openzeppelin/contracts-upgradeable/utils/ContextUpgradeable.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\n// OpenZeppelin Contracts v4.4.1 (utils/Context.sol)\\n\\npragma solidity ^0.8.0;\\nimport \\\"../proxy/utils/Initializable.sol\\\";\\n\\n/**\\n * @dev Provides information about the current execution context, including the\\n * sender of the transaction and its data. While these are generally available\\n * via msg.sender and msg.data, they should not be accessed in such a direct\\n * manner, since when dealing with meta-transactions the account sending and\\n * paying for execution may not be the actual sender (as far as an application\\n * is concerned).\\n *\\n * This contract is only required for intermediate, library-like contracts.\\n */\\nabstract contract ContextUpgradeable is Initializable {\\n    function __Context_init() internal onlyInitializing {\\n    }\\n\\n    function __Context_init_unchained() internal onlyInitializing {\\n    }\\n    function _msgSender() internal view virtual returns (address) {\\n        return msg.sender;\\n    }\\n\\n    function _msgData() internal view virtual returns (bytes calldata) {\\n        return msg.data;\\n    }\\n\\n    /**\\n     * @dev This empty reserved space is put in place to allow future versions to add new\\n     * variables without shifting down storage in the inheritance chain.\\n     * See https://docs.openzeppelin.com/contracts/4.x/upgradeable#storage_gaps\\n     */\\n    uint256[50] private __gap;\\n}\\n\",\"keccak256\":\"0x963ea7f0b48b032eef72fe3a7582edf78408d6f834115b9feadd673a4d5bd149\",\"license\":\"MIT\"},\"src/interfaces/ISmartWalletCoordinator.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\r\\npragma solidity ^0.8.24;\\r\\n\\r\\n// Interfaces\\r\\nimport { IERC20 } from \\\"@openzeppelin/contracts-5/token/ERC20/IERC20.sol\\\";\\r\\n\\r\\n/// @notice Interface used by SmartWalletFactory and SmartWallet to query system-level\\r\\n///         configuration from the coordinator without importing the full contract.\\r\\ninterface ISmartWalletCoordinator {\\r\\n  /// @return The address of the coordinator's owner (the deployer / admin).\\r\\n  function owner() external view returns (address);\\r\\n\\r\\n  /// @notice Destination for all `transferAssets` calls across every SmartWallet.\\r\\n  /// @return The strategy contract address funds are routed to on transfer.\\r\\n  function strategyAddress() external view returns (address);\\r\\n\\r\\n  /// @notice Minimum time that must pass after a recipient is added to a wallet's whitelist\\r\\n  ///         before that recipient can receive withdrawals.\\r\\n  /// @return Delay in seconds. Default is 86400 (24 hours).\\r\\n  function withdrawalDelay() external view returns (uint256);\\r\\n\\r\\n  /// @notice Returns whether a wallet has been blocked from routing funds to the strategy.\\r\\n  /// @param wallet Address of the SmartWallet proxy to check.\\r\\n  function isBlocked(address wallet) external view returns (bool);\\r\\n\\r\\n  /// @notice Returns whether a token is on the coordinator's allowlist for asset movements.\\r\\n  /// @param token ERC-20 token address to check.\\r\\n  function isTokenAllowed(address token) external view returns (bool);\\r\\n\\r\\n  /// @notice The platform token address used for staking operations.\\r\\n  function stakingToken() external view returns (IERC20);\\r\\n\\r\\n  /// @notice Contract address for platform staking via SmartWallet.stake.\\r\\n  function stakingContract() external view returns (address);\\r\\n\\r\\n  /// @notice Contract address for platform vesting operations.\\r\\n  function vestingContract() external view returns (address);\\r\\n\\r\\n  /// @notice The only address permitted to deploy wallets through the SmartWalletFactory.\\r\\n  function relayer() external view returns (address);\\r\\n\\r\\n  /// @notice Shared SwapExecutor contract used by SmartWallet swaps.\\r\\n  function swapExecutor() external view returns (address);\\r\\n\\r\\n  /// @notice The chain's WETH contract, used by SmartWallet to wrap native ETH.\\r\\n  function weth() external view returns (address);\\r\\n}\\r\\n\",\"keccak256\":\"0x13bb03f9538322bc6ec9b56bd2bf074cf00dcdd7a4dce5b832ef870b87a238ff\",\"license\":\"MIT\"},\"src/interfaces/IVestingDistributor.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\r\\npragma solidity ^0.8.24;\\r\\n\\r\\n// Interfaces\\r\\nimport { IERC20 } from \\\"@openzeppelin/contracts-5/token/ERC20/IERC20.sol\\\";\\r\\n\\r\\n/// @title IVestingDistributor\\r\\n/// @notice Interface for vesting allocation reads and staking-routed claims.\\r\\ninterface IVestingDistributor {\\r\\n  /// @notice A vesting schedule defined by a cliff length; all schedules share the global month timestamps.\\r\\n  struct VestingSchedule {\\r\\n    /// @notice Whether new positions can be loaded into this schedule.\\r\\n    bool active;\\r\\n    /// @notice Number of full vesting months before the first positive unlock.\\r\\n    uint8 cliffMonths;\\r\\n    /// @notice Human-readable schedule label for UI display.\\r\\n    string label;\\r\\n    /// @notice Cumulative unlock percentages in parts-per-million, aligned with month timestamps.\\r\\n    uint32[] cumulativeUnlockPpm;\\r\\n  }\\r\\n\\r\\n  /// @notice Packed storage for a user's consolidated position in one schedule type.\\r\\n  struct VestingPosition {\\r\\n    /// @notice Total token allocation loaded for the position.\\r\\n    uint128 totalAmount;\\r\\n    /// @notice Token amount already claimed from the position.\\r\\n    uint128 claimedAmount;\\r\\n  }\\r\\n\\r\\n  /// @notice Computed view of a user's position in one schedule type, returned by read functions.\\r\\n  struct VestingPositionView {\\r\\n    /// @notice Schedule index for this position.\\r\\n    uint8 scheduleType;\\r\\n    /// @notice Number of full vesting months before the first positive unlock.\\r\\n    uint8 cliffMonths;\\r\\n    /// @notice Total number of vesting periods after the cliff.\\r\\n    uint256 vestingPeriods;\\r\\n    /// @notice Human-readable schedule label for UI display.\\r\\n    string label;\\r\\n    /// @notice Total token allocation loaded for the position.\\r\\n    uint256 totalAmount;\\r\\n    /// @notice Token amount already claimed from the position.\\r\\n    uint256 claimedAmount;\\r\\n    /// @notice Token amount vested as of the current timestamp.\\r\\n    uint256 vestedAmount;\\r\\n    /// @notice Token amount currently claimable.\\r\\n    uint256 claimableAmount;\\r\\n    /// @notice Token amount not yet vested.\\r\\n    uint256 lockedAmount;\\r\\n    /// @dev Timestamp of the next vesting event; 0 if fully vested.\\r\\n    uint64 nextReleaseAt;\\r\\n  }\\r\\n\\r\\n  /// @notice Returns the platform token used for all vesting transfers.\\r\\n  /// @return The ERC-20 token used by the vesting distributor.\\r\\n  function token() external view returns (IERC20);\\r\\n\\r\\n  /// @notice Returns one timestamp from the shared vesting calendar.\\r\\n  /// @param index Calendar index to read.\\r\\n  /// @return Month-end unix timestamp.\\r\\n  function monthTimestamps(\\r\\n    uint256 index\\r\\n  ) external view returns (uint64);\\r\\n\\r\\n  /// @notice Returns the schedule definition for a given type.\\r\\n  /// @param scheduleType Schedule index to read.\\r\\n  /// @return Schedule definition.\\r\\n  function getSchedule(\\r\\n    uint8 scheduleType\\r\\n  ) external view returns (VestingSchedule memory);\\r\\n\\r\\n  /// @notice Returns the raw packed position for a (user, scheduleType) pair.\\r\\n  /// @param user         Beneficiary address.\\r\\n  /// @param scheduleType Schedule index to read.\\r\\n  /// @return Packed vesting position.\\r\\n  function getPosition(\\r\\n    address user,\\r\\n    uint8 scheduleType\\r\\n  ) external view returns (VestingPosition memory);\\r\\n\\r\\n  /// @notice Returns the computed position view for a (user, scheduleType) pair.\\r\\n  /// @param user         Beneficiary address.\\r\\n  /// @param scheduleType Schedule index to read.\\r\\n  /// @return Computed vesting position view.\\r\\n  function getPositionView(\\r\\n    address user,\\r\\n    uint8 scheduleType\\r\\n  ) external view returns (VestingPositionView memory);\\r\\n\\r\\n  /// @notice Returns computed views for all schedule types in which the user has a position.\\r\\n  /// @param user Beneficiary address.\\r\\n  /// @return Computed vesting position views.\\r\\n  function getAllPositionViews(\\r\\n    address user\\r\\n  ) external view returns (VestingPositionView[] memory);\\r\\n\\r\\n  /// @notice Returns the bitmask of schedule types in which a user has positions.\\r\\n  /// @param user Beneficiary address.\\r\\n  /// @return Bitmask of schedule indexes.\\r\\n  function userScheduleMask(\\r\\n    address user\\r\\n  ) external view returns (uint8);\\r\\n\\r\\n  /// @notice Returns the total tokens remaining across all of a user's positions.\\r\\n  /// @param user Beneficiary address.\\r\\n  /// @return Remaining unclaimed amount in wei.\\r\\n  function unclaimedBalanceOf(\\r\\n    address user\\r\\n  ) external view returns (uint256);\\r\\n\\r\\n  /// @notice Returns the total amount immediately claimable across all of a user's positions.\\r\\n  /// @param user Beneficiary address.\\r\\n  /// @return Immediately claimable amount in wei.\\r\\n  function claimableBalanceOf(\\r\\n    address user\\r\\n  ) external view returns (uint256);\\r\\n\\r\\n  /// @notice Claims up to `amount` tokens for a user.\\r\\n  /// @param user   Beneficiary whose positions are drawn.\\r\\n  /// @param amount Maximum token amount to claim in wei.\\r\\n  /// @return claimed Actual amount claimed in wei.\\r\\n  function claimFor(\\r\\n    address user,\\r\\n    uint256 amount\\r\\n  ) external returns (uint256 claimed);\\r\\n}\\r\\n\",\"keccak256\":\"0x035719f0f8e69b7167d4dda9a6e56dd906d4ac1e8f41ed1d017cee16b698e0e6\",\"license\":\"MIT\"},\"src/staking/Staking.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\r\\npragma solidity ^0.8.24;\\r\\n\\r\\n// Contracts\\r\\nimport { Initializable } from \\\"@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol\\\";\\r\\nimport { PausableUpgradeable } from \\\"@openzeppelin/contracts-upgradeable/security/PausableUpgradeable.sol\\\";\\r\\n// Libs\\r\\nimport { SafeERC20 } from \\\"@openzeppelin/contracts-5/token/ERC20/utils/SafeERC20.sol\\\";\\r\\n// Interfaces\\r\\nimport { IERC20 } from \\\"@openzeppelin/contracts-5/token/ERC20/IERC20.sol\\\";\\r\\nimport { ISmartWalletCoordinator } from \\\"src/interfaces/ISmartWalletCoordinator.sol\\\";\\r\\nimport { IVestingDistributor } from \\\"src/interfaces/IVestingDistributor.sol\\\";\\r\\n\\r\\n/// @title Staking\\r\\n/// @notice Holds direct staking deposits and acts as the single gateway for withdrawals,\\r\\n///         vesting claims, and combined account reads. Users never interact with\\r\\n///         `VestingDistributor` directly \\u2014 all claim paths flow through this contract.\\r\\n/// @dev Deployed as a transparent proxy. Admin identity is read from\\r\\n///      `SmartWalletCoordinator.owner()` at call time; there is no local owner storage.\\r\\n///      `lockDuration` applies only to future deposits; existing positions are unaffected by\\r\\n///      any subsequent `setLockDuration` call.\\r\\ncontract Staking is Initializable, PausableUpgradeable {\\r\\n  using SafeERC20 for IERC20;\\r\\n\\r\\n  // ====== STORAGE ====== //\\r\\n\\r\\n  /// @notice The coordinator contract from which admin identity, the staking token and\\r\\n  ///         the vesting contract are read.\\r\\n  ISmartWalletCoordinator public coordinator;\\r\\n\\r\\n  /// @notice Seconds added to `block.timestamp` to compute `unlockAt` for new deposits.\\r\\n  uint64 public lockDuration;\\r\\n\\r\\n  /// @dev Staking positions keyed by position ID.\\r\\n  mapping(bytes32 => StakingPosition) private _positions;\\r\\n\\r\\n  /// @dev Ordered list of position IDs for each depositor.\\r\\n  mapping(address => bytes32[]) private _userPositionIds;\\r\\n\\r\\n  /// @notice Monotonic counter used as the nonce when deriving position IDs.\\r\\n  uint256 public nextPositionId;\\r\\n\\r\\n  // ====== STRUCTS ====== //\\r\\n\\r\\n  /// @notice A direct staking deposit with its own lock and withdrawal state.\\r\\n  struct StakingPosition {\\r\\n    /// @dev `keccak256(abi.encodePacked(address(this), nonce))`.\\r\\n    bytes32 positionId;\\r\\n    /// @notice Address that created and owns the staking position.\\r\\n    address owner;\\r\\n    /// @notice Original deposited token amount in wei.\\r\\n    uint256 amount;\\r\\n    /// @notice Amount already withdrawn from this position in wei.\\r\\n    uint256 withdrawnAmount;\\r\\n    /// @notice Timestamp when the position was created.\\r\\n    uint64 depositedAt;\\r\\n    /// @notice Earliest timestamp when this position can be withdrawn.\\r\\n    uint64 unlockAt;\\r\\n  }\\r\\n\\r\\n  /// @notice Aggregated staking and vesting balances for one user.\\r\\n  struct UserStakeSummary {\\r\\n    /// @dev vestingUnclaimed + stakingLocked + stakingWithdrawable.\\r\\n    uint256 totalVipStake;\\r\\n    /// @dev Tokens remaining in VestingDistributor lots (vested or not yet vested).\\r\\n    uint256 vestingUnclaimed;\\r\\n    /// @dev Subset of vestingUnclaimed that can be claimed right now.\\r\\n    uint256 vestingClaimable;\\r\\n    /// @notice Direct staking amount still locked.\\r\\n    uint256 stakingLocked;\\r\\n    /// @notice Direct staking amount unlocked and available to withdraw.\\r\\n    uint256 stakingWithdrawable;\\r\\n    /// @notice Direct staking amount already withdrawn.\\r\\n    uint256 stakingWithdrawn;\\r\\n  }\\r\\n\\r\\n  /// @notice Full staking and vesting position details for one user.\\r\\n  struct UserStakeDetails {\\r\\n    /// @notice Aggregated account summary.\\r\\n    UserStakeSummary summary;\\r\\n    /// @dev All vesting positions (max 4 \\u2014 one per schedule type in which the user has an allocation).\\r\\n    IVestingDistributor.VestingPositionView[] vestingPositions;\\r\\n    /// @notice All direct staking positions for the user.\\r\\n    StakingPosition[] stakingPositions;\\r\\n  }\\r\\n\\r\\n  /// @notice Paginated variant of `UserStakeDetails` \\u2014 returned by `getUserStakeDetailsPage`.\\r\\n  /// @dev Vesting positions are always returned in full (max 4); only staking positions are windowed.\\r\\n  struct UserStakeDetailsPage {\\r\\n    /// @notice Aggregated account summary.\\r\\n    UserStakeSummary summary;\\r\\n    /// @dev Total staking position count regardless of the requested window.\\r\\n    uint256 stakingPositionCount;\\r\\n    /// @notice All vesting positions for the user.\\r\\n    IVestingDistributor.VestingPositionView[] vestingPositions;\\r\\n    /// @notice Requested window of direct staking positions for the user.\\r\\n    StakingPosition[] stakingPositions;\\r\\n  }\\r\\n\\r\\n  // ====== ERRORS ====== //\\r\\n\\r\\n  /// @notice Thrown when a caller other than `coordinator.owner()` invokes an admin function.\\r\\n  error NotCoordinatorOwner();\\r\\n\\r\\n  /// @notice Thrown when a zero amount is passed to `deposit` or `unlock`.\\r\\n  error ZeroAmount();\\r\\n\\r\\n  /// @notice Thrown when `unlock` finds no claimable vesting or withdrawable staking for the caller.\\r\\n  error NothingUnlockable();\\r\\n\\r\\n  /// @notice Thrown when an address argument is zero.\\r\\n  error ZeroAddress();\\r\\n\\r\\n  // ====== EVENTS ====== //\\r\\n\\r\\n  /// @notice Emitted when the lock duration for future deposits changes.\\r\\n  /// @param oldDuration Previous duration in seconds.\\r\\n  /// @param newDuration New duration in seconds.\\r\\n  event StakingLockDurationUpdated(\\r\\n    uint64 oldDuration,\\r\\n    uint64 newDuration\\r\\n  );\\r\\n\\r\\n  /// @notice Emitted when a new staking position is created via `deposit`.\\r\\n  /// @param positionId Unique identifier of the new position.\\r\\n  /// @param user       Address of the depositor.\\r\\n  /// @param amount     Tokens deposited in wei.\\r\\n  /// @param unlockAt   Earliest timestamp at which the position may be withdrawn.\\r\\n  event StakingPositionCreated(\\r\\n    bytes32 indexed positionId,\\r\\n    address indexed user,\\r\\n    uint256 amount,\\r\\n    uint64 unlockAt\\r\\n  );\\r\\n\\r\\n  /// @notice Emitted once per position whenever tokens are withdrawn from it.\\r\\n  /// @param positionId Identifier of the affected position.\\r\\n  /// @param user       Owner of the position.\\r\\n  /// @param recipient  Address that received the tokens.\\r\\n  /// @param amount     Tokens withdrawn in wei.\\r\\n  event StakingPositionWithdrawn(\\r\\n    bytes32 indexed positionId,\\r\\n    address indexed user,\\r\\n    address indexed recipient,\\r\\n    uint256 amount\\r\\n  );\\r\\n\\r\\n  /// @notice Emitted at the end of every `unlock` call.\\r\\n  /// @param user        Caller who initiated the withdrawal.\\r\\n  /// @param recipient   Address that received the tokens (currently always `user`).\\r\\n  /// @param requested   Amount requested by the caller.\\r\\n  /// @param fromVesting Tokens sourced from vesting claims.\\r\\n  /// @param fromStaking Tokens sourced from direct staking positions.\\r\\n  event TokensUnlocked(\\r\\n    address indexed user,\\r\\n    address indexed recipient,\\r\\n    uint256 requested,\\r\\n    uint256 fromVesting,\\r\\n    uint256 fromStaking\\r\\n  );\\r\\n  /// @notice Emitted when the coordinator owner performs an emergency token withdrawal.\\r\\n  /// @param token     ERC-20 token withdrawn from this contract.\\r\\n  /// @param recipient Address that received the withdrawn tokens.\\r\\n  /// @param amount    Token amount withdrawn in wei.\\r\\n  event TokenWithdrawn(\\r\\n    address indexed token,\\r\\n    address indexed recipient,\\r\\n    uint256 amount\\r\\n  );\\r\\n\\r\\n  // ====== MODIFIERS ====== //\\r\\n\\r\\n  /// @dev Restricts a function to the current owner returned by the coordinator.\\r\\n  modifier onlyCoordinatorOwner() {\\r\\n    if (msg.sender != coordinator.owner())\\r\\n      revert NotCoordinatorOwner();\\r\\n    _;\\r\\n  }\\r\\n\\r\\n  // ====== CONSTRUCTOR ====== //\\r\\n\\r\\n  /// @dev Disables initializers on the implementation contract so it cannot be initialized\\r\\n  ///      directly. Initialization must happen atomically through the proxy's constructor.\\r\\n  /// @custom:oz-upgrades-unsafe-allow constructor\\r\\n  constructor() {\\r\\n    _disableInitializers();\\r\\n  }\\r\\n\\r\\n  // ====== INITIALIZER ====== //\\r\\n\\r\\n  /// @notice Initialises the contract for proxy deployment.\\r\\n  /// @dev The vesting contract is not stored here \\u2014 it is resolved at call time from\\r\\n  ///      `coordinator.vestingContract()`.\\r\\n  /// @param coordinator_ Address of the deployed `SmartWalletCoordinator`.\\r\\n  /// @param lockDuration_ Initial lock period for new staking deposits.\\r\\n  function initialize(\\r\\n    address coordinator_,\\r\\n    uint64 lockDuration_\\r\\n  ) external initializer {\\r\\n    __Pausable_init();\\r\\n    coordinator = ISmartWalletCoordinator(coordinator_);\\r\\n    lockDuration = lockDuration_;\\r\\n    emit StakingLockDurationUpdated(0, lockDuration_);\\r\\n  }\\r\\n\\r\\n  // ====== USER WRITE FUNCTIONS ====== //\\r\\n\\r\\n  /// @notice Opens a new time-locked staking position.\\r\\n  /// @dev Pulls `amount` of the staking token from the caller via `transferFrom`. The caller\\r\\n  ///      must approve this contract before calling. A unique position ID is derived from a\\r\\n  ///      monotonic nonce. `lockDuration` at deposit time determines `unlockAt`.\\r\\n  /// @param amount Token amount to stake in wei.\\r\\n  function deposit(uint256 amount) public whenNotPaused {\\r\\n    if (amount == 0) revert ZeroAmount();\\r\\n    coordinator.stakingToken().safeTransferFrom(\\r\\n      msg.sender,\\r\\n      address(this),\\r\\n      amount\\r\\n    );\\r\\n\\r\\n    uint64 unlockAt = uint64(block.timestamp) + lockDuration;\\r\\n    bytes32 positionId = keccak256(\\r\\n      abi.encodePacked(address(this), nextPositionId++)\\r\\n    );\\r\\n\\r\\n    _positions[positionId] = StakingPosition({\\r\\n      positionId: positionId,\\r\\n      owner: msg.sender,\\r\\n      amount: amount,\\r\\n      withdrawnAmount: 0,\\r\\n      depositedAt: uint64(block.timestamp),\\r\\n      unlockAt: unlockAt\\r\\n    });\\r\\n    _userPositionIds[msg.sender].push(positionId);\\r\\n\\r\\n    emit StakingPositionCreated(\\r\\n      positionId,\\r\\n      msg.sender,\\r\\n      amount,\\r\\n      unlockAt\\r\\n    );\\r\\n  }\\r\\n\\r\\n  /// @notice Alias for `deposit` \\u2014 satisfies the `IStaking` interface consumed by SmartWallet.\\r\\n  /// @dev Pause state is enforced by `deposit`.\\r\\n  /// @param amount Token amount to stake in wei.\\r\\n  function stake(uint256 amount) external {\\r\\n    deposit(amount);\\r\\n  }\\r\\n\\r\\n  /// @notice Withdraws up to `amount` tokens to the caller, claiming vesting first.\\r\\n  /// @dev Priority order: (1) claimable vesting, (2) unlocked direct staking.\\r\\n  ///      Locked vesting and locked direct staking are never touched.\\r\\n  ///      Vesting tokens are transferred here first; staking tokens are already held here.\\r\\n  ///      A single outbound transfer is made to the caller after all state is updated (CEI).\\r\\n  ///      Reverts if nothing can be unlocked (no claimable vesting and no withdrawable staking).\\r\\n  /// @param amount Maximum tokens to withdraw in wei.\\r\\n  /// @return unlocked Actual amount of tokens transferred.\\r\\n  function unlock(\\r\\n    uint256 amount\\r\\n  ) public whenNotPaused returns (uint256 unlocked) {\\r\\n    if (amount == 0) revert ZeroAmount();\\r\\n    address user = msg.sender;\\r\\n    uint256 remaining = amount;\\r\\n\\r\\n    uint256 fromVesting = vesting().claimFor(user, remaining);\\r\\n    remaining -= fromVesting;\\r\\n\\r\\n    uint256 fromStaking = _collectUnlockedStaking(user, remaining);\\r\\n\\r\\n    unlocked = fromVesting + fromStaking;\\r\\n    if (unlocked == 0) revert NothingUnlockable();\\r\\n\\r\\n    coordinator.stakingToken().safeTransfer(user, unlocked);\\r\\n    emit TokensUnlocked(user, user, amount, fromVesting, fromStaking);\\r\\n  }\\r\\n\\r\\n  /// @notice Alias for `unlock` \\u2014 satisfies the `IStaking` interface consumed by SmartWallet.\\r\\n  /// @dev Pause state is enforced by `unlock`.\\r\\n  /// @param amount Token amount to withdraw in wei.\\r\\n  function unstake(uint256 amount) external {\\r\\n    unlock(amount);\\r\\n  }\\r\\n\\r\\n  // ====== ADMIN WRITE FUNCTIONS ====== //\\r\\n\\r\\n  /// @notice Updates the lock duration applied to future deposits.\\r\\n  /// @dev Existing positions are not affected.\\r\\n  /// @param duration New lock period in seconds.\\r\\n  function setLockDuration(\\r\\n    uint64 duration\\r\\n  ) external onlyCoordinatorOwner {\\r\\n    emit StakingLockDurationUpdated(lockDuration, duration);\\r\\n    lockDuration = duration;\\r\\n  }\\r\\n\\r\\n  /// @notice Pauses deposits and unlocks.\\r\\n  function pause() external onlyCoordinatorOwner {\\r\\n    _pause();\\r\\n  }\\r\\n\\r\\n  /// @notice Resumes deposits and unlocks after a pause.\\r\\n  function unpause() external onlyCoordinatorOwner {\\r\\n    _unpause();\\r\\n  }\\r\\n\\r\\n  /// @notice Emergency admin withdrawal for any ERC-20 held by this contract.\\r\\n  /// @dev Intentionally permits withdrawing tokens backing direct staking positions. This is a\\r\\n  ///      break-glass action and can leave staking withdrawals underfunded.\\r\\n  /// @param token_    ERC-20 token to withdraw.\\r\\n  /// @param recipient Address that receives the withdrawn tokens.\\r\\n  /// @param amount    Token amount to withdraw in wei.\\r\\n  function withdrawToken(\\r\\n    address token_,\\r\\n    address recipient,\\r\\n    uint256 amount\\r\\n  ) external onlyCoordinatorOwner {\\r\\n    if (token_ == address(0) || recipient == address(0))\\r\\n      revert ZeroAddress();\\r\\n    if (amount == 0) revert ZeroAmount();\\r\\n\\r\\n    IERC20(token_).safeTransfer(recipient, amount);\\r\\n    emit TokenWithdrawn(token_, recipient, amount);\\r\\n  }\\r\\n\\r\\n  // ====== READ FUNCTIONS ====== //\\r\\n\\r\\n  /// @notice Returns the platform token used for deposits and withdrawals.\\r\\n  /// @return The ERC-20 token address read from `coordinator.stakingToken()`.\\r\\n  function token() external view returns (IERC20) {\\r\\n    return coordinator.stakingToken();\\r\\n  }\\r\\n\\r\\n  /// @notice Returns the vesting contract used for claims and combined balance reads.\\r\\n  /// @return The `VestingDistributor` address read from `coordinator.vestingContract()`.\\r\\n  function vesting() public view returns (IVestingDistributor) {\\r\\n    return IVestingDistributor(coordinator.vestingContract());\\r\\n  }\\r\\n\\r\\n  /// @dev Returns direct staking balance still locked for `user`.\\r\\n  function _stakingLockedBalanceOf(\\r\\n    address user\\r\\n  ) internal view returns (uint256 total) {\\r\\n    bytes32[] storage ids = _userPositionIds[user];\\r\\n    uint256 len = ids.length;\\r\\n    for (uint256 i = 0; i < len; i++) {\\r\\n      StakingPosition storage pos = _positions[ids[i]];\\r\\n      if (block.timestamp < pos.unlockAt)\\r\\n        total += pos.amount - pos.withdrawnAmount;\\r\\n    }\\r\\n  }\\r\\n\\r\\n  /// @dev Returns direct staking balance currently withdrawable for `user`.\\r\\n  function _stakingWithdrawableBalanceOf(\\r\\n    address user\\r\\n  ) internal view returns (uint256 total) {\\r\\n    bytes32[] storage ids = _userPositionIds[user];\\r\\n    uint256 len = ids.length;\\r\\n    for (uint256 i = 0; i < len; i++) {\\r\\n      StakingPosition storage pos = _positions[ids[i]];\\r\\n      if (block.timestamp >= pos.unlockAt)\\r\\n        total += pos.amount - pos.withdrawnAmount;\\r\\n    }\\r\\n  }\\r\\n\\r\\n  /// @dev Returns all unwithdrawn direct staking balance for `user`.\\r\\n  function _directStakedBalanceOf(\\r\\n    address user\\r\\n  ) internal view returns (uint256 total) {\\r\\n    bytes32[] storage ids = _userPositionIds[user];\\r\\n    uint256 len = ids.length;\\r\\n    for (uint256 i = 0; i < len; i++) {\\r\\n      total +=\\r\\n        _positions[ids[i]].amount -\\r\\n        _positions[ids[i]].withdrawnAmount;\\r\\n    }\\r\\n  }\\r\\n\\r\\n  /// @notice Returns the combined staked balance used for protocol-level accounting.\\r\\n  /// @dev Equals `vesting.unclaimedBalanceOf(user) + direct staking balance`.\\r\\n  /// @param user Account address.\\r\\n  /// @return Combined staked balance in wei.\\r\\n  function totalStakedBalanceOf(\\r\\n    address user\\r\\n  ) external view returns (uint256) {\\r\\n    return\\r\\n      vesting().unclaimedBalanceOf(user) + _directStakedBalanceOf(user);\\r\\n  }\\r\\n\\r\\n  /// @notice Returns the aggregated staking and vesting summary for VIP and UI purposes.\\r\\n  /// @dev `totalVipStake = vestingUnclaimed + stakingLocked + stakingWithdrawable`.\\r\\n  ///      Tokens already withdrawn are excluded from VIP calculations.\\r\\n  /// @param user Account address.\\r\\n  /// @return Populated `UserStakeSummary`.\\r\\n  function getUserStakeSummary(\\r\\n    address user\\r\\n  ) public view returns (UserStakeSummary memory) {\\r\\n    IVestingDistributor vesting_ = vesting();\\r\\n    uint256 vestingUnclaimed = vesting_.unclaimedBalanceOf(user);\\r\\n    uint256 vestingClaimable = vesting_.claimableBalanceOf(user);\\r\\n    uint256 locked = _stakingLockedBalanceOf(user);\\r\\n    uint256 withdrawable = _stakingWithdrawableBalanceOf(user);\\r\\n\\r\\n    uint256 withdrawn;\\r\\n    bytes32[] storage ids = _userPositionIds[user];\\r\\n    uint256 len = ids.length;\\r\\n    for (uint256 i = 0; i < len; i++) {\\r\\n      withdrawn += _positions[ids[i]].withdrawnAmount;\\r\\n    }\\r\\n\\r\\n    return\\r\\n      UserStakeSummary({\\r\\n        totalVipStake: vestingUnclaimed + locked + withdrawable,\\r\\n        vestingUnclaimed: vestingUnclaimed,\\r\\n        vestingClaimable: vestingClaimable,\\r\\n        stakingLocked: locked,\\r\\n        stakingWithdrawable: withdrawable,\\r\\n        stakingWithdrawn: withdrawn\\r\\n      });\\r\\n  }\\r\\n\\r\\n  /// @notice Returns the full account details in a single call.\\r\\n  /// @param user Account address.\\r\\n  /// @return details Summary, all vesting positions (max 4), all staking positions.\\r\\n  function getUserStakeDetails(\\r\\n    address user\\r\\n  ) external view returns (UserStakeDetails memory details) {\\r\\n    details.summary = getUserStakeSummary(user);\\r\\n    details.vestingPositions = vesting().getAllPositionViews(user);\\r\\n    details.stakingPositions = _slicePositions(\\r\\n      user,\\r\\n      0,\\r\\n      type(uint256).max\\r\\n    );\\r\\n  }\\r\\n\\r\\n  /// @notice Returns a paginated window of account details.\\r\\n  /// @dev The `summary` and `stakingPositionCount` always reflect the full account.\\r\\n  ///      Vesting positions are always returned in full (max 4); only staking positions are windowed.\\r\\n  /// @param user           Account address.\\r\\n  /// @param positionOffset Zero-based index of the first staking position to include.\\r\\n  /// @param positionLimit  Maximum number of staking positions to return.\\r\\n  /// @return page Paginated `UserStakeDetailsPage`.\\r\\n  function getUserStakeDetailsPage(\\r\\n    address user,\\r\\n    uint256 positionOffset,\\r\\n    uint256 positionLimit\\r\\n  ) external view returns (UserStakeDetailsPage memory page) {\\r\\n    page.summary = getUserStakeSummary(user);\\r\\n    page.stakingPositionCount = _userPositionIds[user].length;\\r\\n    page.vestingPositions = vesting().getAllPositionViews(user);\\r\\n    page.stakingPositions = _slicePositions(\\r\\n      user,\\r\\n      positionOffset,\\r\\n      positionLimit\\r\\n    );\\r\\n  }\\r\\n\\r\\n  // ====== INTERNAL HELPERS ====== //\\r\\n\\r\\n  /// @dev Accounts for up to `remaining` tokens from the caller's unlocked staking positions.\\r\\n  ///      Updates withdrawnAmount on each eligible position; the caller is responsible for\\r\\n  ///      the actual token transfer.\\r\\n  function _collectUnlockedStaking(\\r\\n    address user,\\r\\n    uint256 remaining\\r\\n  ) internal returns (uint256 collected) {\\r\\n    if (remaining == 0) return 0;\\r\\n    bytes32[] storage ids = _userPositionIds[user];\\r\\n    uint256 len = ids.length;\\r\\n\\r\\n    for (uint256 i = 0; i < len && remaining > 0; i++) {\\r\\n      StakingPosition storage pos = _positions[ids[i]];\\r\\n      if (block.timestamp < pos.unlockAt) continue;\\r\\n      uint256 available = pos.amount - pos.withdrawnAmount;\\r\\n      if (available == 0) continue;\\r\\n\\r\\n      uint256 take = available < remaining ? available : remaining;\\r\\n      pos.withdrawnAmount += take;\\r\\n      collected += take;\\r\\n      remaining -= take;\\r\\n\\r\\n      emit StakingPositionWithdrawn(ids[i], user, user, take);\\r\\n    }\\r\\n  }\\r\\n\\r\\n  /// @dev Returns a window of staking positions for a user.\\r\\n  ///      `limit == type(uint256).max` returns all positions from `offset` onwards.\\r\\n  function _slicePositions(\\r\\n    address user,\\r\\n    uint256 offset,\\r\\n    uint256 limit\\r\\n  ) internal view returns (StakingPosition[] memory result) {\\r\\n    bytes32[] storage ids = _userPositionIds[user];\\r\\n    uint256 total = ids.length;\\r\\n    if (offset >= total) return new StakingPosition[](0);\\r\\n\\r\\n    uint256 end = limit > total - offset ? total : offset + limit;\\r\\n    uint256 count = end - offset;\\r\\n    result = new StakingPosition[](count);\\r\\n    for (uint256 i = 0; i < count; i++) {\\r\\n      result[i] = _positions[ids[offset + i]];\\r\\n    }\\r\\n  }\\r\\n}\\r\\n\",\"keccak256\":\"0xfb23812d634625dc1601fec8db141f05485d6fe7f34acd91096ae4396baac450\",\"license\":\"MIT\"}},\"version\":1}",
+  "bytecode": "0x608060405234801561000f575f80fd5b5061001861001d565b6100d9565b5f54610100900460ff16156100885760405162461bcd60e51b815260206004820152602760248201527f496e697469616c697a61626c653a20636f6e747261637420697320696e697469604482015266616c697a696e6760c81b606482015260840160405180910390fd5b5f5460ff908116146100d7575f805460ff191660ff9081179091556040519081527f7f26b83ff96e1f2b6a682f133852f6798a09c465da95921460cefb38474024989060200160405180910390a15b565b61208d80620000e75f395ff3fe608060405234801561000f575f80fd5b506004361061011c575f3560e01c80638456cb59116100a9578063aa3cb4f31161006e578063aa3cb4f31461025b578063b6b55f251461026e578063d239a12114610281578063e3c55588146102a1578063fc0c546a146102c1575f80fd5b80638456cb591461020457806388abace21461020c578063899346c71461022c578063a218df5e14610235578063a694fc3a14610248575f80fd5b80632e17de78116100ef5780632e17de78146101aa5780633f4ba83a146101bd57806344c63eec146101c55780635c975abb146101cd5780636198e339146101e3575f80fd5b806301e336671461012057806304554443146101355780630a0090971461016c5780631798de8114610197575b5f80fd5b61013361012e366004611972565b6102c9565b005b60655461014f90600160a01b90046001600160401b031681565b6040516001600160401b0390911681526020015b60405180910390f35b60655461017f906001600160a01b031681565b6040516001600160a01b039091168152602001610163565b6101336101a53660046119c4565b61042f565b6101336101b83660046119fb565b6105ae565b6101336105bb565b61017f61066a565b60335460ff166040519015158152602001610163565b6101f66101f13660046119fb565b6106da565b604051908152602001610163565b6101336108a6565b61021f61021a366004611a12565b610953565b6040516101639190611a67565b6101f660685481565b610133610243366004611a75565b610b15565b6101336102563660046119fb565b610c35565b6101f6610269366004611a12565b610c41565b61013361027c3660046119fb565b610ccd565b61029461028f366004611a12565b610efd565b6040516101639190611c40565b6102b46102af366004611c95565b610f9f565b6040516101639190611cc7565b61017f611061565b60655f9054906101000a90046001600160a01b03166001600160a01b0316638da5cb5b6040518163ffffffff1660e01b8152600401602060405180830381865afa158015610319573d5f803e3d5ffd5b505050506040513d601f19601f8201168201806040525081019061033d9190611d1d565b6001600160a01b0316336001600160a01b03161461036e57604051630e2ea36360e31b815260040160405180910390fd5b6001600160a01b038316158061038b57506001600160a01b038216155b156103a95760405163d92e233d60e01b815260040160405180910390fd5b805f036103c957604051631f2a200560e01b815260040160405180910390fd5b6103dd6001600160a01b03841683836110a8565b816001600160a01b0316836001600160a01b03167f8210728e7c071f615b840ee026032693858fbcd5e5359e67e438c890f59e56208360405161042291815260200190565b60405180910390a3505050565b5f54610100900460ff161580801561044d57505f54600160ff909116105b806104665750303b15801561046657505f5460ff166001145b6104ce5760405162461bcd60e51b815260206004820152602e60248201527f496e697469616c697a61626c653a20636f6e747261637420697320616c72656160448201526d191e481a5b9a5d1a585b1a5e995960921b60648201526084015b60405180910390fd5b5f805460ff1916600117905580156104ef575f805461ff0019166101001790555b6104f76110dd565b606580546001600160401b038416600160a01b81026001600160e01b03199092166001600160a01b0387161791909117909155604080515f815260208101929092527fec8b0b63a6accb87fb078d0f4ab79265223b3e18221864ef842e94640f35b50c910160405180910390a180156105a9575f805461ff0019169055604051600181527f7f26b83ff96e1f2b6a682f133852f6798a09c465da95921460cefb38474024989060200160405180910390a15b505050565b6105b7816106da565b5050565b60655f9054906101000a90046001600160a01b03166001600160a01b0316638da5cb5b6040518163ffffffff1660e01b8152600401602060405180830381865afa15801561060b573d5f803e3d5ffd5b505050506040513d601f19601f8201168201806040525081019061062f9190611d1d565b6001600160a01b0316336001600160a01b03161461066057604051630e2ea36360e31b815260040160405180910390fd5b61066861110b565b565b60655460408051635e6f604560e01b815290515f926001600160a01b031691635e6f60459160048083019260209291908290030181865afa1580156106b1573d5f803e3d5ffd5b505050506040513d601f19601f820116820180604052508101906106d59190611d1d565b905090565b5f6106e361115d565b815f0361070357604051631f2a200560e01b815260040160405180910390fd5b33825f61070e61066a565b604051630de0565960e01b81526001600160a01b038581166004830152602482018590529190911690630de05659906044016020604051808303815f875af115801561075c573d5f803e3d5ffd5b505050506040513d601f19601f820116820180604052508101906107809190611d38565b905061078c8183611d63565b91505f61079984846111a3565b90506107a58183611d76565b9450845f036107c75760405163bfdd908960e01b815260040160405180910390fd5b610850848660655f9054906101000a90046001600160a01b03166001600160a01b03166372f702f36040518163ffffffff1660e01b8152600401602060405180830381865afa15801561081c573d5f803e3d5ffd5b505050506040513d601f19601f820116820180604052508101906108409190611d1d565b6001600160a01b031691906110a8565b60408051878152602081018490529081018290526001600160a01b0385169081907ecff72eb8dd7ec094c1462f889f7cacaf5e165528a2bda284e68c98115355b59060600160405180910390a350505050919050565b60655f9054906101000a90046001600160a01b03166001600160a01b0316638da5cb5b6040518163ffffffff1660e01b8152600401602060405180830381865afa1580156108f6573d5f803e3d5ffd5b505050506040513d601f19601f8201168201806040525081019061091a9190611d1d565b6001600160a01b0316336001600160a01b03161461094b57604051630e2ea36360e31b815260040160405180910390fd5b61066861132c565b61095b6118da565b5f61096461066a565b604051630c60242560e11b81526001600160a01b0385811660048301529192505f918316906318c0484a90602401602060405180830381865afa1580156109ad573d5f803e3d5ffd5b505050506040513d601f19601f820116820180604052508101906109d19190611d38565b60405163270fb89160e21b81526001600160a01b0386811660048301529192505f91841690639c3ee24490602401602060405180830381865afa158015610a1a573d5f803e3d5ffd5b505050506040513d601f19601f82011682018060405250810190610a3e9190611d38565b90505f610a4a86611369565b90505f610a5687611414565b6001600160a01b0388165f90815260676020526040812080549293509091825b81811015610ac25760665f848381548110610a9357610a93611d89565b905f5260205f20015481526020019081526020015f206003015484610ab89190611d76565b9350600101610a76565b506040518060c0016040528085878a610adb9190611d76565b610ae59190611d76565b81526020018881526020018781526020018681526020018581526020018481525098505050505050505050919050565b60655f9054906101000a90046001600160a01b03166001600160a01b0316638da5cb5b6040518163ffffffff1660e01b8152600401602060405180830381865afa158015610b65573d5f803e3d5ffd5b505050506040513d601f19601f82011682018060405250810190610b899190611d1d565b6001600160a01b0316336001600160a01b031614610bba57604051630e2ea36360e31b815260040160405180910390fd5b606554604080516001600160401b03600160a01b9093048316815291831660208301527fec8b0b63a6accb87fb078d0f4ab79265223b3e18221864ef842e94640f35b50c910160405180910390a1606580546001600160401b03909216600160a01b0267ffffffffffffffff60a01b19909216919091179055565b610c3e81610ccd565b50565b5f610c4b826114b6565b610c5361066a565b604051630c60242560e11b81526001600160a01b03858116600483015291909116906318c0484a90602401602060405180830381865afa158015610c99573d5f803e3d5ffd5b505050506040513d601f19601f82011682018060405250810190610cbd9190611d38565b610cc79190611d76565b92915050565b610cd561115d565b805f03610cf557604051631f2a200560e01b815260040160405180910390fd5b610d8033308360655f9054906101000a90046001600160a01b03166001600160a01b03166372f702f36040518163ffffffff1660e01b8152600401602060405180830381865afa158015610d4b573d5f803e3d5ffd5b505050506040513d601f19601f82011682018060405250810190610d6f9190611d1d565b6001600160a01b0316929190611555565b6065545f90610d9f90600160a01b90046001600160401b031642611d9d565b606880549192505f91309183610db483611dc4565b9091555060405160609290921b6bffffffffffffffffffffffff19166020830152603482015260540160408051601f19818403018152828252805160209182012060c084018352808452338285018181528585018981525f606088018181526001600160401b0342811660808b019081528c821660a08c0181815289865260668b528b86209c518d5596516001808e0180546001600160a01b039093166001600160a01b031990931692909217909155955160028d0155925160038c0155516004909a01805495518216600160401b026fffffffffffffffffffffffffffffffff199096169a90911699909917939093179097558287526067855285872080549182018155875295849020909501829055835188815292830194909452935083917f2d75d3def5d3f8df5c23c8773cabf087860c6dccd8620ab43c64a395bdb7e17f9101610422565b610f0561190a565b610f0e82610953565b8152610f1861066a565b60405163100a17f560e21b81526001600160a01b03848116600483015291909116906340285fd4906024015f60405180830381865afa158015610f5d573d5f803e3d5ffd5b505050506040513d5f823e601f3d908101601f19168201604052610f849190810190611ed1565b6020820152610f95825f5f19611591565b6040820152919050565b610fa7611931565b610fb084610953565b81526001600160a01b0384165f9081526067602090815260409091205490820152610fd961066a565b60405163100a17f560e21b81526001600160a01b03868116600483015291909116906340285fd4906024015f60405180830381865afa15801561101e573d5f803e3d5ffd5b505050506040513d5f823e601f3d908101601f191682016040526110459190810190611ed1565b6040820152611055848484611591565b60608201529392505050565b606554604080516372f702f360e01b815290515f926001600160a01b0316916372f702f39160048083019260209291908290030181865afa1580156106b1573d5f803e3d5ffd5b6110b58383836001611790565b6105a957604051635274afe760e01b81526001600160a01b03841660048201526024016104c5565b5f54610100900460ff166111035760405162461bcd60e51b81526004016104c590612035565b6106686117f2565b611113611824565b6033805460ff191690557f5db9ee0a495bf2e6ff9c91a7834c1ba4fdd244a5e8aa4e537bd38aeae4b073aa335b6040516001600160a01b03909116815260200160405180910390a1565b60335460ff16156106685760405162461bcd60e51b815260206004820152601060248201526f14185d5cd8589b194e881c185d5cd95960821b60448201526064016104c5565b5f815f036111b257505f610cc7565b6001600160a01b0383165f908152606760205260408120805490915b81811080156111dc57505f85115b15611323575f60665f8584815481106111f7576111f7611d89565b905f5260205f20015481526020019081526020015f2090508060040160089054906101000a90046001600160401b03166001600160401b031642101561123d5750611311565b5f816003015482600201546112529190611d63565b9050805f03611262575050611311565b5f8782106112705787611272565b815b905080836003015f8282546112879190611d76565b9091555061129790508188611d76565b96506112a38189611d63565b9750886001600160a01b0316896001600160a01b03168786815481106112cb576112cb611d89565b905f5260205f2001547f084fc38ea8c7916737ff608030d2d66d99e9eb6e3346b449eb9cd7b2bc36f4bb8460405161130591815260200190565b60405180910390a45050505b8061131b81611dc4565b9150506111ce565b50505092915050565b61133461115d565b6033805460ff191660011790557f62e78cea01bee320cd4e420270b5ea74000d11b0c9f74754ebdbfc544b05a2586111403390565b6001600160a01b0381165f9081526067602052604081208054825b8181101561140c575f60665f8584815481106113a2576113a2611d89565b905f5260205f20015481526020019081526020015f2090508060040160089054906101000a90046001600160401b03166001600160401b031642101561140357806003015481600201546113f69190611d63565b6114009086611d76565b94505b50600101611384565b505050919050565b6001600160a01b0381165f9081526067602052604081208054825b8181101561140c575f60665f85848154811061144d5761144d611d89565b905f5260205f20015481526020019081526020015f2090508060040160089054906101000a90046001600160401b03166001600160401b031642106114ad57806003015481600201546114a09190611d63565b6114aa9086611d76565b94505b5060010161142f565b6001600160a01b0381165f9081526067602052604081208054825b8181101561140c5760665f8483815481106114ee576114ee611d89565b905f5260205f20015481526020019081526020015f206003015460665f85848154811061151d5761151d611d89565b905f5260205f20015481526020019081526020015f20600201546115419190611d63565b61154b9085611d76565b93506001016114d1565b61156384848484600161186d565b61158b57604051635274afe760e01b81526001600160a01b03851660048201526024016104c5565b50505050565b6001600160a01b0383165f90815260676020526040902080546060919080851061161457604080515f808252602082019092529061160a565b6040805160c0810182525f8082526020808301829052928201819052606082018190526080820181905260a082015282525f199092019101816115ca5790505b5092505050611789565b5f61161f8683611d63565b85116116345761162f8587611d76565b611636565b815b90505f6116438783611d63565b9050806001600160401b0381111561165d5761165d611ddc565b6040519080825280602002602001820160405280156116bb57816020015b6040805160c0810182525f8082526020808301829052928201819052606082018190526080820181905260a082015282525f1990920191018161167b5790505b5094505f5b818110156117835760665f866116d6848c611d76565b815481106116e6576116e6611d89565b5f91825260208083209091015483528281019390935260409182019020815160c0810183528154815260018201546001600160a01b03169381019390935260028101549183019190915260038101546060830152600401546001600160401b038082166080840152600160401b9091041660a0820152865187908390811061177057611770611d89565b60209081029190910101526001016116c0565b50505050505b9392505050565b60405163a9059cbb60e01b5f8181526001600160a01b038616600452602485905291602083604481808b5af1925060015f511483166117e65783831516156117da573d5f823e3d81fd5b5f873b113d1516831692505b60405250949350505050565b5f54610100900460ff166118185760405162461bcd60e51b81526004016104c590612035565b6033805460ff19169055565b60335460ff166106685760405162461bcd60e51b815260206004820152601460248201527314185d5cd8589b194e881b9bdd081c185d5cd95960621b60448201526064016104c5565b6040516323b872dd60e01b5f8181526001600160a01b038781166004528616602452604485905291602083606481808c5af1925060015f511483166118c95783831516156118bd573d5f823e3d81fd5b5f883b113d1516831692505b604052505f60605295945050505050565b6040518060c001604052805f81526020015f81526020015f81526020015f81526020015f81526020015f81525090565b604051806060016040528061191d6118da565b815260200160608152602001606081525090565b60405180608001604052806119446118da565b81526020015f815260200160608152602001606081525090565b6001600160a01b0381168114610c3e575f80fd5b5f805f60608486031215611984575f80fd5b833561198f8161195e565b9250602084013561199f8161195e565b929592945050506040919091013590565b6001600160401b0381168114610c3e575f80fd5b5f80604083850312156119d5575f80fd5b82356119e08161195e565b915060208301356119f0816119b0565b809150509250929050565b5f60208284031215611a0b575f80fd5b5035919050565b5f60208284031215611a22575f80fd5b81356117898161195e565b805182526020810151602083015260408101516040830152606081015160608301526080810151608083015260a081015160a08301525050565b60c08101610cc78284611a2d565b5f60208284031215611a85575f80fd5b8135611789816119b0565b5f5b83811015611aaa578181015183820152602001611a92565b50505f910152565b5f8151808452611ac9816020860160208601611a90565b601f01601f19169290920160200192915050565b5f82825180855260208086019550808260051b8401018186015f5b84811015611bad57858303601f190189528151805160ff1684526101408186015160ff8116868801525060408083015181870152506060808301518282880152611b4483880182611ab2565b6080858101519089015260a0808601519089015260c0808601519089015260e080860151908901526101008086015190890152610120948501516001600160401b038116868a0152949093509150611b999050565b509985019993505090830190600101611af8565b5090979650505050505050565b5f815180845260208085019450602084015f5b83811015611c3557815180518852838101516001600160a01b03168489015260408082015190890152606080820151908901526080808201516001600160401b03908116918a019190915260a091820151169088015260c09096019590820190600101611bcd565b509495945050505050565b60208152611c52602082018351611a2d565b5f60208301516101008060e0850152611c6f610120850183611add565b91506040850151601f198584030182860152611c8b8382611bba565b9695505050505050565b5f805f60608486031215611ca7575f80fd5b8335611cb28161195e565b95602085013595506040909401359392505050565b60208152611cd9602082018351611a2d565b602082015160e08201525f604083015161012080610100850152611d01610140850183611add565b91506060850151601f198584030182860152611c8b8382611bba565b5f60208284031215611d2d575f80fd5b81516117898161195e565b5f60208284031215611d48575f80fd5b5051919050565b634e487b7160e01b5f52601160045260245ffd5b81810381811115610cc757610cc7611d4f565b80820180821115610cc757610cc7611d4f565b634e487b7160e01b5f52603260045260245ffd5b6001600160401b03818116838216019080821115611dbd57611dbd611d4f565b5092915050565b5f60018201611dd557611dd5611d4f565b5060010190565b634e487b7160e01b5f52604160045260245ffd5b60405161014081016001600160401b0381118282101715611e1357611e13611ddc565b60405290565b604051601f8201601f191681016001600160401b0381118282101715611e4157611e41611ddc565b604052919050565b805160ff81168114611e59575f80fd5b919050565b5f82601f830112611e6d575f80fd5b81516001600160401b03811115611e8657611e86611ddc565b611e99601f8201601f1916602001611e19565b818152846020838601011115611ead575f80fd5b611ebe826020830160208701611a90565b949350505050565b8051611e59816119b0565b5f6020808385031215611ee2575f80fd5b82516001600160401b0380821115611ef8575f80fd5b818501915085601f830112611f0b575f80fd5b815181811115611f1d57611f1d611ddc565b8060051b611f2c858201611e19565b9182528381018501918581019089841115611f45575f80fd5b86860192505b8383101561202857825185811115611f61575f80fd5b8601610140818c03601f1901811315611f78575f80fd5b611f80611df0565b611f8b8a8401611e49565b8152611f9960408401611e49565b8a8201526060830151604082015260808084015189811115611fb9575f80fd5b611fc78f8d83880101611e5e565b60608401525060a0808501518284015260c0915081850151818401525060e0808501518284015261010091508185015181840152506101208085015182840152612012848601611ec6565b9083015250845250509186019190860190611f4b565b9998505050505050505050565b6020808252602b908201527f496e697469616c697a61626c653a20636f6e7472616374206973206e6f74206960408201526a6e697469616c697a696e6760a81b60608201526080019056fea164736f6c6343000818000a",
+  "deployedBytecode": "0x608060405234801561000f575f80fd5b506004361061011c575f3560e01c80638456cb59116100a9578063aa3cb4f31161006e578063aa3cb4f31461025b578063b6b55f251461026e578063d239a12114610281578063e3c55588146102a1578063fc0c546a146102c1575f80fd5b80638456cb591461020457806388abace21461020c578063899346c71461022c578063a218df5e14610235578063a694fc3a14610248575f80fd5b80632e17de78116100ef5780632e17de78146101aa5780633f4ba83a146101bd57806344c63eec146101c55780635c975abb146101cd5780636198e339146101e3575f80fd5b806301e336671461012057806304554443146101355780630a0090971461016c5780631798de8114610197575b5f80fd5b61013361012e366004611972565b6102c9565b005b60655461014f90600160a01b90046001600160401b031681565b6040516001600160401b0390911681526020015b60405180910390f35b60655461017f906001600160a01b031681565b6040516001600160a01b039091168152602001610163565b6101336101a53660046119c4565b61042f565b6101336101b83660046119fb565b6105ae565b6101336105bb565b61017f61066a565b60335460ff166040519015158152602001610163565b6101f66101f13660046119fb565b6106da565b604051908152602001610163565b6101336108a6565b61021f61021a366004611a12565b610953565b6040516101639190611a67565b6101f660685481565b610133610243366004611a75565b610b15565b6101336102563660046119fb565b610c35565b6101f6610269366004611a12565b610c41565b61013361027c3660046119fb565b610ccd565b61029461028f366004611a12565b610efd565b6040516101639190611c40565b6102b46102af366004611c95565b610f9f565b6040516101639190611cc7565b61017f611061565b60655f9054906101000a90046001600160a01b03166001600160a01b0316638da5cb5b6040518163ffffffff1660e01b8152600401602060405180830381865afa158015610319573d5f803e3d5ffd5b505050506040513d601f19601f8201168201806040525081019061033d9190611d1d565b6001600160a01b0316336001600160a01b03161461036e57604051630e2ea36360e31b815260040160405180910390fd5b6001600160a01b038316158061038b57506001600160a01b038216155b156103a95760405163d92e233d60e01b815260040160405180910390fd5b805f036103c957604051631f2a200560e01b815260040160405180910390fd5b6103dd6001600160a01b03841683836110a8565b816001600160a01b0316836001600160a01b03167f8210728e7c071f615b840ee026032693858fbcd5e5359e67e438c890f59e56208360405161042291815260200190565b60405180910390a3505050565b5f54610100900460ff161580801561044d57505f54600160ff909116105b806104665750303b15801561046657505f5460ff166001145b6104ce5760405162461bcd60e51b815260206004820152602e60248201527f496e697469616c697a61626c653a20636f6e747261637420697320616c72656160448201526d191e481a5b9a5d1a585b1a5e995960921b60648201526084015b60405180910390fd5b5f805460ff1916600117905580156104ef575f805461ff0019166101001790555b6104f76110dd565b606580546001600160401b038416600160a01b81026001600160e01b03199092166001600160a01b0387161791909117909155604080515f815260208101929092527fec8b0b63a6accb87fb078d0f4ab79265223b3e18221864ef842e94640f35b50c910160405180910390a180156105a9575f805461ff0019169055604051600181527f7f26b83ff96e1f2b6a682f133852f6798a09c465da95921460cefb38474024989060200160405180910390a15b505050565b6105b7816106da565b5050565b60655f9054906101000a90046001600160a01b03166001600160a01b0316638da5cb5b6040518163ffffffff1660e01b8152600401602060405180830381865afa15801561060b573d5f803e3d5ffd5b505050506040513d601f19601f8201168201806040525081019061062f9190611d1d565b6001600160a01b0316336001600160a01b03161461066057604051630e2ea36360e31b815260040160405180910390fd5b61066861110b565b565b60655460408051635e6f604560e01b815290515f926001600160a01b031691635e6f60459160048083019260209291908290030181865afa1580156106b1573d5f803e3d5ffd5b505050506040513d601f19601f820116820180604052508101906106d59190611d1d565b905090565b5f6106e361115d565b815f0361070357604051631f2a200560e01b815260040160405180910390fd5b33825f61070e61066a565b604051630de0565960e01b81526001600160a01b038581166004830152602482018590529190911690630de05659906044016020604051808303815f875af115801561075c573d5f803e3d5ffd5b505050506040513d601f19601f820116820180604052508101906107809190611d38565b905061078c8183611d63565b91505f61079984846111a3565b90506107a58183611d76565b9450845f036107c75760405163bfdd908960e01b815260040160405180910390fd5b610850848660655f9054906101000a90046001600160a01b03166001600160a01b03166372f702f36040518163ffffffff1660e01b8152600401602060405180830381865afa15801561081c573d5f803e3d5ffd5b505050506040513d601f19601f820116820180604052508101906108409190611d1d565b6001600160a01b031691906110a8565b60408051878152602081018490529081018290526001600160a01b0385169081907ecff72eb8dd7ec094c1462f889f7cacaf5e165528a2bda284e68c98115355b59060600160405180910390a350505050919050565b60655f9054906101000a90046001600160a01b03166001600160a01b0316638da5cb5b6040518163ffffffff1660e01b8152600401602060405180830381865afa1580156108f6573d5f803e3d5ffd5b505050506040513d601f19601f8201168201806040525081019061091a9190611d1d565b6001600160a01b0316336001600160a01b03161461094b57604051630e2ea36360e31b815260040160405180910390fd5b61066861132c565b61095b6118da565b5f61096461066a565b604051630c60242560e11b81526001600160a01b0385811660048301529192505f918316906318c0484a90602401602060405180830381865afa1580156109ad573d5f803e3d5ffd5b505050506040513d601f19601f820116820180604052508101906109d19190611d38565b60405163270fb89160e21b81526001600160a01b0386811660048301529192505f91841690639c3ee24490602401602060405180830381865afa158015610a1a573d5f803e3d5ffd5b505050506040513d601f19601f82011682018060405250810190610a3e9190611d38565b90505f610a4a86611369565b90505f610a5687611414565b6001600160a01b0388165f90815260676020526040812080549293509091825b81811015610ac25760665f848381548110610a9357610a93611d89565b905f5260205f20015481526020019081526020015f206003015484610ab89190611d76565b9350600101610a76565b506040518060c0016040528085878a610adb9190611d76565b610ae59190611d76565b81526020018881526020018781526020018681526020018581526020018481525098505050505050505050919050565b60655f9054906101000a90046001600160a01b03166001600160a01b0316638da5cb5b6040518163ffffffff1660e01b8152600401602060405180830381865afa158015610b65573d5f803e3d5ffd5b505050506040513d601f19601f82011682018060405250810190610b899190611d1d565b6001600160a01b0316336001600160a01b031614610bba57604051630e2ea36360e31b815260040160405180910390fd5b606554604080516001600160401b03600160a01b9093048316815291831660208301527fec8b0b63a6accb87fb078d0f4ab79265223b3e18221864ef842e94640f35b50c910160405180910390a1606580546001600160401b03909216600160a01b0267ffffffffffffffff60a01b19909216919091179055565b610c3e81610ccd565b50565b5f610c4b826114b6565b610c5361066a565b604051630c60242560e11b81526001600160a01b03858116600483015291909116906318c0484a90602401602060405180830381865afa158015610c99573d5f803e3d5ffd5b505050506040513d601f19601f82011682018060405250810190610cbd9190611d38565b610cc79190611d76565b92915050565b610cd561115d565b805f03610cf557604051631f2a200560e01b815260040160405180910390fd5b610d8033308360655f9054906101000a90046001600160a01b03166001600160a01b03166372f702f36040518163ffffffff1660e01b8152600401602060405180830381865afa158015610d4b573d5f803e3d5ffd5b505050506040513d601f19601f82011682018060405250810190610d6f9190611d1d565b6001600160a01b0316929190611555565b6065545f90610d9f90600160a01b90046001600160401b031642611d9d565b606880549192505f91309183610db483611dc4565b9091555060405160609290921b6bffffffffffffffffffffffff19166020830152603482015260540160408051601f19818403018152828252805160209182012060c084018352808452338285018181528585018981525f606088018181526001600160401b0342811660808b019081528c821660a08c0181815289865260668b528b86209c518d5596516001808e0180546001600160a01b039093166001600160a01b031990931692909217909155955160028d0155925160038c0155516004909a01805495518216600160401b026fffffffffffffffffffffffffffffffff199096169a90911699909917939093179097558287526067855285872080549182018155875295849020909501829055835188815292830194909452935083917f2d75d3def5d3f8df5c23c8773cabf087860c6dccd8620ab43c64a395bdb7e17f9101610422565b610f0561190a565b610f0e82610953565b8152610f1861066a565b60405163100a17f560e21b81526001600160a01b03848116600483015291909116906340285fd4906024015f60405180830381865afa158015610f5d573d5f803e3d5ffd5b505050506040513d5f823e601f3d908101601f19168201604052610f849190810190611ed1565b6020820152610f95825f5f19611591565b6040820152919050565b610fa7611931565b610fb084610953565b81526001600160a01b0384165f9081526067602090815260409091205490820152610fd961066a565b60405163100a17f560e21b81526001600160a01b03868116600483015291909116906340285fd4906024015f60405180830381865afa15801561101e573d5f803e3d5ffd5b505050506040513d5f823e601f3d908101601f191682016040526110459190810190611ed1565b6040820152611055848484611591565b60608201529392505050565b606554604080516372f702f360e01b815290515f926001600160a01b0316916372f702f39160048083019260209291908290030181865afa1580156106b1573d5f803e3d5ffd5b6110b58383836001611790565b6105a957604051635274afe760e01b81526001600160a01b03841660048201526024016104c5565b5f54610100900460ff166111035760405162461bcd60e51b81526004016104c590612035565b6106686117f2565b611113611824565b6033805460ff191690557f5db9ee0a495bf2e6ff9c91a7834c1ba4fdd244a5e8aa4e537bd38aeae4b073aa335b6040516001600160a01b03909116815260200160405180910390a1565b60335460ff16156106685760405162461bcd60e51b815260206004820152601060248201526f14185d5cd8589b194e881c185d5cd95960821b60448201526064016104c5565b5f815f036111b257505f610cc7565b6001600160a01b0383165f908152606760205260408120805490915b81811080156111dc57505f85115b15611323575f60665f8584815481106111f7576111f7611d89565b905f5260205f20015481526020019081526020015f2090508060040160089054906101000a90046001600160401b03166001600160401b031642101561123d5750611311565b5f816003015482600201546112529190611d63565b9050805f03611262575050611311565b5f8782106112705787611272565b815b905080836003015f8282546112879190611d76565b9091555061129790508188611d76565b96506112a38189611d63565b9750886001600160a01b0316896001600160a01b03168786815481106112cb576112cb611d89565b905f5260205f2001547f084fc38ea8c7916737ff608030d2d66d99e9eb6e3346b449eb9cd7b2bc36f4bb8460405161130591815260200190565b60405180910390a45050505b8061131b81611dc4565b9150506111ce565b50505092915050565b61133461115d565b6033805460ff191660011790557f62e78cea01bee320cd4e420270b5ea74000d11b0c9f74754ebdbfc544b05a2586111403390565b6001600160a01b0381165f9081526067602052604081208054825b8181101561140c575f60665f8584815481106113a2576113a2611d89565b905f5260205f20015481526020019081526020015f2090508060040160089054906101000a90046001600160401b03166001600160401b031642101561140357806003015481600201546113f69190611d63565b6114009086611d76565b94505b50600101611384565b505050919050565b6001600160a01b0381165f9081526067602052604081208054825b8181101561140c575f60665f85848154811061144d5761144d611d89565b905f5260205f20015481526020019081526020015f2090508060040160089054906101000a90046001600160401b03166001600160401b031642106114ad57806003015481600201546114a09190611d63565b6114aa9086611d76565b94505b5060010161142f565b6001600160a01b0381165f9081526067602052604081208054825b8181101561140c5760665f8483815481106114ee576114ee611d89565b905f5260205f20015481526020019081526020015f206003015460665f85848154811061151d5761151d611d89565b905f5260205f20015481526020019081526020015f20600201546115419190611d63565b61154b9085611d76565b93506001016114d1565b61156384848484600161186d565b61158b57604051635274afe760e01b81526001600160a01b03851660048201526024016104c5565b50505050565b6001600160a01b0383165f90815260676020526040902080546060919080851061161457604080515f808252602082019092529061160a565b6040805160c0810182525f8082526020808301829052928201819052606082018190526080820181905260a082015282525f199092019101816115ca5790505b5092505050611789565b5f61161f8683611d63565b85116116345761162f8587611d76565b611636565b815b90505f6116438783611d63565b9050806001600160401b0381111561165d5761165d611ddc565b6040519080825280602002602001820160405280156116bb57816020015b6040805160c0810182525f8082526020808301829052928201819052606082018190526080820181905260a082015282525f1990920191018161167b5790505b5094505f5b818110156117835760665f866116d6848c611d76565b815481106116e6576116e6611d89565b5f91825260208083209091015483528281019390935260409182019020815160c0810183528154815260018201546001600160a01b03169381019390935260028101549183019190915260038101546060830152600401546001600160401b038082166080840152600160401b9091041660a0820152865187908390811061177057611770611d89565b60209081029190910101526001016116c0565b50505050505b9392505050565b60405163a9059cbb60e01b5f8181526001600160a01b038616600452602485905291602083604481808b5af1925060015f511483166117e65783831516156117da573d5f823e3d81fd5b5f873b113d1516831692505b60405250949350505050565b5f54610100900460ff166118185760405162461bcd60e51b81526004016104c590612035565b6033805460ff19169055565b60335460ff166106685760405162461bcd60e51b815260206004820152601460248201527314185d5cd8589b194e881b9bdd081c185d5cd95960621b60448201526064016104c5565b6040516323b872dd60e01b5f8181526001600160a01b038781166004528616602452604485905291602083606481808c5af1925060015f511483166118c95783831516156118bd573d5f823e3d81fd5b5f883b113d1516831692505b604052505f60605295945050505050565b6040518060c001604052805f81526020015f81526020015f81526020015f81526020015f81526020015f81525090565b604051806060016040528061191d6118da565b815260200160608152602001606081525090565b60405180608001604052806119446118da565b81526020015f815260200160608152602001606081525090565b6001600160a01b0381168114610c3e575f80fd5b5f805f60608486031215611984575f80fd5b833561198f8161195e565b9250602084013561199f8161195e565b929592945050506040919091013590565b6001600160401b0381168114610c3e575f80fd5b5f80604083850312156119d5575f80fd5b82356119e08161195e565b915060208301356119f0816119b0565b809150509250929050565b5f60208284031215611a0b575f80fd5b5035919050565b5f60208284031215611a22575f80fd5b81356117898161195e565b805182526020810151602083015260408101516040830152606081015160608301526080810151608083015260a081015160a08301525050565b60c08101610cc78284611a2d565b5f60208284031215611a85575f80fd5b8135611789816119b0565b5f5b83811015611aaa578181015183820152602001611a92565b50505f910152565b5f8151808452611ac9816020860160208601611a90565b601f01601f19169290920160200192915050565b5f82825180855260208086019550808260051b8401018186015f5b84811015611bad57858303601f190189528151805160ff1684526101408186015160ff8116868801525060408083015181870152506060808301518282880152611b4483880182611ab2565b6080858101519089015260a0808601519089015260c0808601519089015260e080860151908901526101008086015190890152610120948501516001600160401b038116868a0152949093509150611b999050565b509985019993505090830190600101611af8565b5090979650505050505050565b5f815180845260208085019450602084015f5b83811015611c3557815180518852838101516001600160a01b03168489015260408082015190890152606080820151908901526080808201516001600160401b03908116918a019190915260a091820151169088015260c09096019590820190600101611bcd565b509495945050505050565b60208152611c52602082018351611a2d565b5f60208301516101008060e0850152611c6f610120850183611add565b91506040850151601f198584030182860152611c8b8382611bba565b9695505050505050565b5f805f60608486031215611ca7575f80fd5b8335611cb28161195e565b95602085013595506040909401359392505050565b60208152611cd9602082018351611a2d565b602082015160e08201525f604083015161012080610100850152611d01610140850183611add565b91506060850151601f198584030182860152611c8b8382611bba565b5f60208284031215611d2d575f80fd5b81516117898161195e565b5f60208284031215611d48575f80fd5b5051919050565b634e487b7160e01b5f52601160045260245ffd5b81810381811115610cc757610cc7611d4f565b80820180821115610cc757610cc7611d4f565b634e487b7160e01b5f52603260045260245ffd5b6001600160401b03818116838216019080821115611dbd57611dbd611d4f565b5092915050565b5f60018201611dd557611dd5611d4f565b5060010190565b634e487b7160e01b5f52604160045260245ffd5b60405161014081016001600160401b0381118282101715611e1357611e13611ddc565b60405290565b604051601f8201601f191681016001600160401b0381118282101715611e4157611e41611ddc565b604052919050565b805160ff81168114611e59575f80fd5b919050565b5f82601f830112611e6d575f80fd5b81516001600160401b03811115611e8657611e86611ddc565b611e99601f8201601f1916602001611e19565b818152846020838601011115611ead575f80fd5b611ebe826020830160208701611a90565b949350505050565b8051611e59816119b0565b5f6020808385031215611ee2575f80fd5b82516001600160401b0380821115611ef8575f80fd5b818501915085601f830112611f0b575f80fd5b815181811115611f1d57611f1d611ddc565b8060051b611f2c858201611e19565b9182528381018501918581019089841115611f45575f80fd5b86860192505b8383101561202857825185811115611f61575f80fd5b8601610140818c03601f1901811315611f78575f80fd5b611f80611df0565b611f8b8a8401611e49565b8152611f9960408401611e49565b8a8201526060830151604082015260808084015189811115611fb9575f80fd5b611fc78f8d83880101611e5e565b60608401525060a0808501518284015260c0915081850151818401525060e0808501518284015261010091508185015181840152506101208085015182840152612012848601611ec6565b9083015250845250509186019190860190611f4b565b9998505050505050505050565b6020808252602b908201527f496e697469616c697a61626c653a20636f6e7472616374206973206e6f74206960408201526a6e697469616c697a696e6760a81b60608201526080019056fea164736f6c6343000818000a",
+  "devdoc": {
+    "details": "Deployed as a transparent proxy. Admin identity is read from      `SmartWalletCoordinator.owner()` at call time; there is no local owner storage.      `lockDuration` applies only to future deposits; existing positions are unaffected by      any subsequent `setLockDuration` call.",
+    "errors": {
+      "SafeERC20FailedOperation(address)": [
+        {
+          "details": "An operation with an ERC-20 token failed."
+        }
+      ]
+    },
+    "events": {
+      "Initialized(uint8)": {
+        "details": "Triggered when the contract has been initialized or reinitialized."
+      },
+      "Paused(address)": {
+        "details": "Emitted when the pause is triggered by `account`."
+      },
+      "StakingLockDurationUpdated(uint64,uint64)": {
+        "params": {
+          "newDuration": "New duration in seconds.",
+          "oldDuration": "Previous duration in seconds."
+        }
+      },
+      "StakingPositionCreated(bytes32,address,uint256,uint64)": {
+        "params": {
+          "amount": "Tokens deposited in wei.",
+          "positionId": "Unique identifier of the new position.",
+          "unlockAt": "Earliest timestamp at which the position may be withdrawn.",
+          "user": "Address of the depositor."
+        }
+      },
+      "StakingPositionWithdrawn(bytes32,address,address,uint256)": {
+        "params": {
+          "amount": "Tokens withdrawn in wei.",
+          "positionId": "Identifier of the affected position.",
+          "recipient": "Address that received the tokens.",
+          "user": "Owner of the position."
+        }
+      },
+      "TokenWithdrawn(address,address,uint256)": {
+        "params": {
+          "amount": "Token amount withdrawn in wei.",
+          "recipient": "Address that received the withdrawn tokens.",
+          "token": "ERC-20 token withdrawn from this contract."
+        }
+      },
+      "TokensUnlocked(address,address,uint256,uint256,uint256)": {
+        "params": {
+          "fromStaking": "Tokens sourced from direct staking positions.",
+          "fromVesting": "Tokens sourced from vesting claims.",
+          "recipient": "Address that received the tokens (currently always `user`).",
+          "requested": "Amount requested by the caller.",
+          "user": "Caller who initiated the withdrawal."
+        }
+      },
+      "Unpaused(address)": {
+        "details": "Emitted when the pause is lifted by `account`."
+      }
+    },
+    "kind": "dev",
+    "methods": {
+      "constructor": {
+        "custom:oz-upgrades-unsafe-allow": "constructor",
+        "details": "Disables initializers on the implementation contract so it cannot be initialized      directly. Initialization must happen atomically through the proxy's constructor."
+      },
+      "deposit(uint256)": {
+        "details": "Pulls `amount` of the staking token from the caller via `transferFrom`. The caller      must approve this contract before calling. A unique position ID is derived from a      monotonic nonce. `lockDuration` at deposit time determines `unlockAt`.",
+        "params": {
+          "amount": "Token amount to stake in wei."
+        }
+      },
+      "getUserStakeDetails(address)": {
+        "params": {
+          "user": "Account address."
+        },
+        "returns": {
+          "details": "Summary, all vesting positions (max 4), all staking positions."
+        }
+      },
+      "getUserStakeDetailsPage(address,uint256,uint256)": {
+        "details": "The `summary` and `stakingPositionCount` always reflect the full account.      Vesting positions are always returned in full (max 4); only staking positions are windowed.",
+        "params": {
+          "positionLimit": "Maximum number of staking positions to return.",
+          "positionOffset": "Zero-based index of the first staking position to include.",
+          "user": "Account address."
+        },
+        "returns": {
+          "page": "Paginated `UserStakeDetailsPage`."
+        }
+      },
+      "getUserStakeSummary(address)": {
+        "details": "`totalVipStake = vestingUnclaimed + stakingLocked + stakingWithdrawable`.      Tokens already withdrawn are excluded from VIP calculations.",
+        "params": {
+          "user": "Account address."
+        },
+        "returns": {
+          "_0": "Populated `UserStakeSummary`."
+        }
+      },
+      "initialize(address,uint64)": {
+        "details": "The vesting contract is not stored here — it is resolved at call time from      `coordinator.vestingContract()`.",
+        "params": {
+          "coordinator_": "Address of the deployed `SmartWalletCoordinator`.",
+          "lockDuration_": "Initial lock period for new staking deposits."
+        }
+      },
+      "paused()": {
+        "details": "Returns true if the contract is paused, and false otherwise."
+      },
+      "setLockDuration(uint64)": {
+        "details": "Existing positions are not affected.",
+        "params": {
+          "duration": "New lock period in seconds."
+        }
+      },
+      "stake(uint256)": {
+        "details": "Pause state is enforced by `deposit`.",
+        "params": {
+          "amount": "Token amount to stake in wei."
+        }
+      },
+      "token()": {
+        "returns": {
+          "_0": "The ERC-20 token address read from `coordinator.stakingToken()`."
+        }
+      },
+      "totalStakedBalanceOf(address)": {
+        "details": "Equals `vesting.unclaimedBalanceOf(user) + direct staking balance`.",
+        "params": {
+          "user": "Account address."
+        },
+        "returns": {
+          "_0": "Combined staked balance in wei."
+        }
+      },
+      "unlock(uint256)": {
+        "details": "Priority order: (1) claimable vesting, (2) unlocked direct staking.      Locked vesting and locked direct staking are never touched.      Vesting tokens are transferred here first; staking tokens are already held here.      A single outbound transfer is made to the caller after all state is updated (CEI).      Reverts if nothing can be unlocked (no claimable vesting and no withdrawable staking).",
+        "params": {
+          "amount": "Maximum tokens to withdraw in wei."
+        },
+        "returns": {
+          "unlocked": "Actual amount of tokens transferred."
+        }
+      },
+      "unstake(uint256)": {
+        "details": "Pause state is enforced by `unlock`.",
+        "params": {
+          "amount": "Token amount to withdraw in wei."
+        }
+      },
+      "vesting()": {
+        "returns": {
+          "_0": "The `VestingDistributor` address read from `coordinator.vestingContract()`."
+        }
+      },
+      "withdrawToken(address,address,uint256)": {
+        "details": "Intentionally permits withdrawing tokens backing direct staking positions. This is a      break-glass action and can leave staking withdrawals underfunded.",
+        "params": {
+          "amount": "Token amount to withdraw in wei.",
+          "recipient": "Address that receives the withdrawn tokens.",
+          "token_": "ERC-20 token to withdraw."
+        }
+      }
+    },
+    "stateVariables": {
+      "_positions": {
+        "details": "Staking positions keyed by position ID."
+      },
+      "_userPositionIds": {
+        "details": "Ordered list of position IDs for each depositor."
+      }
+    },
+    "title": "Staking",
+    "version": 1
+  },
+  "userdoc": {
+    "errors": {
+      "NotCoordinatorOwner()": [
+        {
+          "notice": "Thrown when a caller other than `coordinator.owner()` invokes an admin function."
+        }
+      ],
+      "NothingUnlockable()": [
+        {
+          "notice": "Thrown when `unlock` finds no claimable vesting or withdrawable staking for the caller."
+        }
+      ],
+      "ZeroAddress()": [
+        {
+          "notice": "Thrown when an address argument is zero."
+        }
+      ],
+      "ZeroAmount()": [
+        {
+          "notice": "Thrown when a zero amount is passed to `deposit` or `unlock`."
+        }
+      ]
+    },
+    "events": {
+      "StakingLockDurationUpdated(uint64,uint64)": {
+        "notice": "Emitted when the lock duration for future deposits changes."
+      },
+      "StakingPositionCreated(bytes32,address,uint256,uint64)": {
+        "notice": "Emitted when a new staking position is created via `deposit`."
+      },
+      "StakingPositionWithdrawn(bytes32,address,address,uint256)": {
+        "notice": "Emitted once per position whenever tokens are withdrawn from it."
+      },
+      "TokenWithdrawn(address,address,uint256)": {
+        "notice": "Emitted when the coordinator owner performs an emergency token withdrawal."
+      },
+      "TokensUnlocked(address,address,uint256,uint256,uint256)": {
+        "notice": "Emitted at the end of every `unlock` call."
+      }
+    },
+    "kind": "user",
+    "methods": {
+      "coordinator()": {
+        "notice": "The coordinator contract from which admin identity, the staking token and         the vesting contract are read."
+      },
+      "deposit(uint256)": {
+        "notice": "Opens a new time-locked staking position."
+      },
+      "getUserStakeDetails(address)": {
+        "notice": "Returns the full account details in a single call."
+      },
+      "getUserStakeDetailsPage(address,uint256,uint256)": {
+        "notice": "Returns a paginated window of account details."
+      },
+      "getUserStakeSummary(address)": {
+        "notice": "Returns the aggregated staking and vesting summary for VIP and UI purposes."
+      },
+      "initialize(address,uint64)": {
+        "notice": "Initialises the contract for proxy deployment."
+      },
+      "lockDuration()": {
+        "notice": "Seconds added to `block.timestamp` to compute `unlockAt` for new deposits."
+      },
+      "nextPositionId()": {
+        "notice": "Monotonic counter used as the nonce when deriving position IDs."
+      },
+      "pause()": {
+        "notice": "Pauses deposits and unlocks."
+      },
+      "setLockDuration(uint64)": {
+        "notice": "Updates the lock duration applied to future deposits."
+      },
+      "stake(uint256)": {
+        "notice": "Alias for `deposit` — satisfies the `IStaking` interface consumed by SmartWallet."
+      },
+      "token()": {
+        "notice": "Returns the platform token used for deposits and withdrawals."
+      },
+      "totalStakedBalanceOf(address)": {
+        "notice": "Returns the combined staked balance used for protocol-level accounting."
+      },
+      "unlock(uint256)": {
+        "notice": "Withdraws up to `amount` tokens to the caller, claiming vesting first."
+      },
+      "unpause()": {
+        "notice": "Resumes deposits and unlocks after a pause."
+      },
+      "unstake(uint256)": {
+        "notice": "Alias for `unlock` — satisfies the `IStaking` interface consumed by SmartWallet."
+      },
+      "vesting()": {
+        "notice": "Returns the vesting contract used for claims and combined balance reads."
+      },
+      "withdrawToken(address,address,uint256)": {
+        "notice": "Emergency admin withdrawal for any ERC-20 held by this contract."
+      }
+    },
+    "notice": "Holds direct staking deposits and acts as the single gateway for withdrawals,         vesting claims, and combined account reads. Users never interact with         `VestingDistributor` directly — all claim paths flow through this contract.",
+    "version": 1
+  },
+  "storageLayout": {
+    "storage": [
+      {
+        "astId": 11285,
+        "contract": "src/staking/Staking.sol:Staking",
+        "label": "_initialized",
+        "offset": 0,
+        "slot": "0",
+        "type": "t_uint8"
+      },
+      {
+        "astId": 11288,
+        "contract": "src/staking/Staking.sol:Staking",
+        "label": "_initializing",
+        "offset": 1,
+        "slot": "0",
+        "type": "t_bool"
+      },
+      {
+        "astId": 11945,
+        "contract": "src/staking/Staking.sol:Staking",
+        "label": "__gap",
+        "offset": 0,
+        "slot": "1",
+        "type": "t_array(t_uint256)50_storage"
+      },
+      {
+        "astId": 11468,
+        "contract": "src/staking/Staking.sol:Staking",
+        "label": "_paused",
+        "offset": 0,
+        "slot": "51",
+        "type": "t_bool"
+      },
+      {
+        "astId": 11573,
+        "contract": "src/staking/Staking.sol:Staking",
+        "label": "__gap",
+        "offset": 0,
+        "slot": "52",
+        "type": "t_array(t_uint256)49_storage"
+      },
+      {
+        "astId": 18552,
+        "contract": "src/staking/Staking.sol:Staking",
+        "label": "coordinator",
+        "offset": 0,
+        "slot": "101",
+        "type": "t_contract(ISmartWalletCoordinator)13873"
+      },
+      {
+        "astId": 18555,
+        "contract": "src/staking/Staking.sol:Staking",
+        "label": "lockDuration",
+        "offset": 20,
+        "slot": "101",
+        "type": "t_uint64"
+      },
+      {
+        "astId": 18561,
+        "contract": "src/staking/Staking.sol:Staking",
+        "label": "_positions",
+        "offset": 0,
+        "slot": "102",
+        "type": "t_mapping(t_bytes32,t_struct(StakingPosition)18590_storage)"
+      },
+      {
+        "astId": 18567,
+        "contract": "src/staking/Staking.sol:Staking",
+        "label": "_userPositionIds",
+        "offset": 0,
+        "slot": "103",
+        "type": "t_mapping(t_address,t_array(t_bytes32)dyn_storage)"
+      },
+      {
+        "astId": 18570,
+        "contract": "src/staking/Staking.sol:Staking",
+        "label": "nextPositionId",
+        "offset": 0,
+        "slot": "104",
+        "type": "t_uint256"
+      }
+    ],
+    "types": {
+      "t_address": {
+        "encoding": "inplace",
+        "label": "address",
+        "numberOfBytes": "20"
+      },
+      "t_array(t_bytes32)dyn_storage": {
+        "base": "t_bytes32",
+        "encoding": "dynamic_array",
+        "label": "bytes32[]",
+        "numberOfBytes": "32"
+      },
+      "t_array(t_uint256)49_storage": {
+        "base": "t_uint256",
+        "encoding": "inplace",
+        "label": "uint256[49]",
+        "numberOfBytes": "1568"
+      },
+      "t_array(t_uint256)50_storage": {
+        "base": "t_uint256",
+        "encoding": "inplace",
+        "label": "uint256[50]",
+        "numberOfBytes": "1600"
+      },
+      "t_bool": {
+        "encoding": "inplace",
+        "label": "bool",
+        "numberOfBytes": "1"
+      },
+      "t_bytes32": {
+        "encoding": "inplace",
+        "label": "bytes32",
+        "numberOfBytes": "32"
+      },
+      "t_contract(ISmartWalletCoordinator)13873": {
+        "encoding": "inplace",
+        "label": "contract ISmartWalletCoordinator",
+        "numberOfBytes": "20"
+      },
+      "t_mapping(t_address,t_array(t_bytes32)dyn_storage)": {
+        "encoding": "mapping",
+        "key": "t_address",
+        "label": "mapping(address => bytes32[])",
+        "numberOfBytes": "32",
+        "value": "t_array(t_bytes32)dyn_storage"
+      },
+      "t_mapping(t_bytes32,t_struct(StakingPosition)18590_storage)": {
+        "encoding": "mapping",
+        "key": "t_bytes32",
+        "label": "mapping(bytes32 => struct Staking.StakingPosition)",
+        "numberOfBytes": "32",
+        "value": "t_struct(StakingPosition)18590_storage"
+      },
+      "t_struct(StakingPosition)18590_storage": {
+        "encoding": "inplace",
+        "label": "struct Staking.StakingPosition",
+        "members": [
+          {
+            "astId": 18574,
+            "contract": "src/staking/Staking.sol:Staking",
+            "label": "positionId",
+            "offset": 0,
+            "slot": "0",
+            "type": "t_bytes32"
+          },
+          {
+            "astId": 18577,
+            "contract": "src/staking/Staking.sol:Staking",
+            "label": "owner",
+            "offset": 0,
+            "slot": "1",
+            "type": "t_address"
+          },
+          {
+            "astId": 18580,
+            "contract": "src/staking/Staking.sol:Staking",
+            "label": "amount",
+            "offset": 0,
+            "slot": "2",
+            "type": "t_uint256"
+          },
+          {
+            "astId": 18583,
+            "contract": "src/staking/Staking.sol:Staking",
+            "label": "withdrawnAmount",
+            "offset": 0,
+            "slot": "3",
+            "type": "t_uint256"
+          },
+          {
+            "astId": 18586,
+            "contract": "src/staking/Staking.sol:Staking",
+            "label": "depositedAt",
+            "offset": 0,
+            "slot": "4",
+            "type": "t_uint64"
+          },
+          {
+            "astId": 18589,
+            "contract": "src/staking/Staking.sol:Staking",
+            "label": "unlockAt",
+            "offset": 8,
+            "slot": "4",
+            "type": "t_uint64"
+          }
+        ],
+        "numberOfBytes": "160"
+      },
+      "t_uint256": {
+        "encoding": "inplace",
+        "label": "uint256",
+        "numberOfBytes": "32"
+      },
+      "t_uint64": {
+        "encoding": "inplace",
+        "label": "uint64",
+        "numberOfBytes": "8"
+      },
+      "t_uint8": {
+        "encoding": "inplace",
+        "label": "uint8",
+        "numberOfBytes": "1"
+      }
+    }
+  }
+}
